@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  namespace :host do
+    resources :rides, only: [:new, :create, :destroy, :edit, :update]
+  end
+
+  resources :rides, only: [:show, :index] do
+    resources :participations, only: [:create]
+  end
+
+  resources :participations, only: [:destroy]
+
+  get "/dashboard", to: "users#dashboard"
 end
