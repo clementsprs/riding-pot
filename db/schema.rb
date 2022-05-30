@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 2022_05_30_140054) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
   create_table "participations", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "ride_id"
