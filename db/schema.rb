@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_30_135736) do
+ActiveRecord::Schema.define(version: 2022_05_30_140054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,32 @@ ActiveRecord::Schema.define(version: 2022_05_30_135736) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  create_table "participations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "ride_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ride_id"], name: "index_participations_on_ride_id"
+    t.index ["user_id"], name: "index_participations_on_user_id"
+  end
+
+  create_table "rides", force: :cascade do |t|
+    t.float "distance"
+    t.string "title"
+    t.date "date"
+    t.date "starting_time"
+    t.string "starting_point"
+    t.text "description"
+    t.integer "elevation"
+    t.integer "pace_min"
+    t.integer "pace_max"
+    t.integer "attendees_max"
+    t.string "status"
+    t.string "gpx_file"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_rides_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,6 +77,10 @@ ActiveRecord::Schema.define(version: 2022_05_30_135736) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "username"
+    t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
