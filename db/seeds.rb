@@ -30,5 +30,9 @@ user4 = User.new([{ first_name: 'Yohann' }, { last_name: 'Lemasson' }, { usernam
 user4.photo.attach(io: photoyohann, filename: 'yohann.png', content_type: 'image/png')
 user4.save
 
+ride1 = Ride.new(title: 'Session 1', user: user1)
+ride1.save
+ride1.update()
+
 
 puts "Seeding done."
