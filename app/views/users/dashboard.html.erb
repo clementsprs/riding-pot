@@ -1,0 +1,16 @@
+<h1>My dashboard</h1>
+
+<%= link_to 'My upcoming participations', dashboard_path, class:"btn btn-primary" %>
+<%= link_to 'My past participations', dashboard_path(choice: 'past_participations'), class:"btn btn-primary" %>
+<%= link_to 'My upcoming rides', dashboard_path(choice: 'upcoming_rides'), class:"btn btn-primary" %>
+<%= link_to 'My past rides', dashboard_path(choice: 'past_rides'), class:"btn btn-primary" %>
+
+<% if params[:choice] == 'past_participations' %>
+  <h1>My past participations</h1>
+<% elsif params[:choice] == 'upcoming_rides' %>
+  <h1>My upcoming rides</h1>
+<% elsif params[:choice] == 'past_rides' %>
+  <h1>My past rides</h1>
+<% elsif params[:choice] == 'upcoming_participations' || '' %>
+  <h1>My upcoming participations</h1>
+<% end %>
