@@ -210,9 +210,6 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rexml (3.2.5)
-    rgeo (2.4.0)
-    rgeo-geojson (2.1.1)
-      rgeo (>= 1.0.0)
     rubyzip (2.3.2)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -296,7 +293,6 @@ DEPENDENCIES
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.6)
   redis (~> 4.0)
-  rgeo-geojson
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
   simple_form!
