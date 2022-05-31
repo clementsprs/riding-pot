@@ -16,11 +16,15 @@ export default class extends Controller {
     // this.#addMarkersToMap()
     this.#displayJourneyReshaped(this.map, this.markersValue)
     this.#fitMapToJourney()
+    // this.#addMarkersToMap()
+    // this.#fitMapToMarkers()
+
   }
 
   // #addMarkersToMap() {
   //   this.markersValue.forEach((marker) => {
   //     new mapboxgl.Marker()
+  //       console.log(marker)
   //       .setLngLat([ marker.lng, marker.lat ])
   //       .addTo(this.map)
   //   });
@@ -32,10 +36,16 @@ export default class extends Controller {
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
 
+  // #fitMapToMarkers() {
+  //   const bounds = new mapboxgl.LngLatBounds()
+  //   this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
+  //   this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+  // }
+
   #displayJourneyReshaped(map, coords) {
     //on transforme nos coordonées en string pour l'appel de l'API
     var newCoords = [];
-    var maxVal = 98;
+    var maxVal = 97;
     var delta = Math.floor( coords.length / maxVal );
     for (var i = 0; i < coords.length; i=i+delta) {
       newCoords.push(coords[i]);
