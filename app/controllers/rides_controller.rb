@@ -1,3 +1,4 @@
+require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
 
@@ -6,19 +7,16 @@ class RidesController < ApplicationController
 
   def show
     @ride = Ride.find(params[:id])
-    @markers = [lat: @ride.latitude, lng: @ride.longitude]
+    # @markers = [lat: @ride.latitude, lng: @ride.longitude]
 
-
-    # file = File.open("geom")
-    # doc = Nokogiri::XML(file)
-    # trackpoints = doc.xpath('trkpt')
-    # route = []
-    # @markers = trackpoints.each do |trkpt|
-    #   lat = trkpt.xpath('@lat').to_s.to_f
-    #   lon = trkpt.xpath('@lon').to_s.to_f
-    #   ele = trkpt.text.strip.to_f
-    #   route << { lat: lat, lon: lon, ele: ele }
-    # end
+    doc = Nokogiri::XML(@ride.gpx_file)
+    trackpoints = doc.xpath('//xmlns:trkpt')
+    @markers = Array.new
+    trackpoints.each do |trkpt|
+      @markers << [
+        trkpt.xpath('@lon').to_s.to_f, trkpt.xpath('@lat').to_s.to_f
+      ]
+    end
   end
 
   def index
