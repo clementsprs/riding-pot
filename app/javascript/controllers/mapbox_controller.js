@@ -19,8 +19,7 @@ export default class extends Controller {
     if (this.pageValue === "index") {
     this.#addMarkersToIndexMap()
     this.#fitMapToIndexMarkers()
-    this.#staticImage(this.markersValue)}
-    else {
+    } else {
     this.#displayJourneyReshaped(this.map, this.markersValue)
     this.#fitMapToJourney()}
   }
@@ -87,57 +86,6 @@ export default class extends Controller {
         }
     };
     xhr.send();
-}
-
-
-#staticImage(coords) {
-var polyline = require('@mapbox/polyline');
-console.log(polyline);
-console.log(coords.length)
-var newCoords = [];
-var maxVal = 97;
-var delta = Math.floor( coords.length / maxVal );
-console.log(delta);
-for (var j = 0; j < coords.length; j=j+delta) {
-  newCoords.push(coords[j]);
-}
-console.log(newCoords);
-var path = polyline.encode(newCoords);
-console.log(path);
-console.log(polyline.decode(path))
-var directionsRequest = 'https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/path-5+f44-0.5(%7DrpeFxbnjVsFwdAvr@cHgFor@jEmAlFmEMwM_FuItCkOi@wc@bg@wBSgM)/auto/500x500?access_token=' + this.apiKeyValue;
-var xhr = new XMLHttpRequest();
-xhr.open('GET', directionsRequest);
-xhr.onload = function () {
-    if (xhr.status === 200) {
-        var response = JSON.parse(xhr.responseText);
-        console.log(response)
-        //on récupère la données calculé qui nous permettra d'afficher l'itinéraire
-        var route = response.matchings[0].geometry;
-        //add layer
-        map.addLayer({
-            id: 'journeyReshaped', //identifiant unique de l'objet
-            type: 'line',
-            source: {
-                type: 'geojson',
-                data: {
-                    type: 'Feature',
-                    geometry: route //utilisation de l'itinéraire
-                }
-            },
-            paint: {
-                'line-color': "#14453D", //couleur de la ligne
-                'line-width': 3, //epaisseur de la ligne
-                'line-opacity': 0.8 //opacité de la ligne
-            }
-        });
-    } else {
-        //en cas d'erreur ajax
-        console.log('Request failed.  Returned status of ' + xhr.status);
-    }
-};
-xhr.send();
-
 }
 
 
