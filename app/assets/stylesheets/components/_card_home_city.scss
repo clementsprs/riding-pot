@@ -1,0 +1,16 @@
+.card-home-city {
+  padding: 10px;
+  margin: 10px;
+  width: 13rem;
+  height: 15rem;
+  border-radius: 20px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(/assets/nantes-city.jpg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+
+  p {
+    margin: 0;
+  }
+}

@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   resources :participations, only: [:destroy]
 
   get "/dashboard", to: "users#dashboard"
+  get "/components", to: "pages#components"
 end

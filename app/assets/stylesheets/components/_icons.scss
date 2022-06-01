@@ -1,5 +1,12 @@
 .city-icon {
-
+  color: $terracota;
+  background-color: $light-gray;
+  font-family: $headers-font;
+  font-weight: 700;
+  padding: 6px 17px;
+  border-radius: 15px;
+  display: inline-block;
+  text-align: center;
 }
 
 .geoloc-icon {
@@ -23,5 +30,5 @@
 }
 
 .date-time-icon {
-  
+
 }
