@@ -21,7 +21,7 @@ class RidesController < ApplicationController
 
   def index
     @rides = Ride.all
-    @markers = @rides.geocoded.map do |ride|
+    @markersIndex = @rides.geocoded.map do |ride|
       {
         lat: ride.latitude,
         lng: ride.longitude

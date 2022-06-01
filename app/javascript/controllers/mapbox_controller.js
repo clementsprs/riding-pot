@@ -4,43 +4,44 @@ import mapboxgl from "mapbox-gl"
 export default class extends Controller {
   static values = {
     apiKey: String,
-    markers: Array
+    page: String,
+    markers: Array,
+    markersIndex: Array
   }
 
   connect() {
+    console.log(this.pageValue)
     mapboxgl.accessToken = this.apiKeyValue
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v10"
     })
-    // this.#addMarkersToMap()
+    if (this.pageValue === "index") {
+    this.#addMarkersToIndexMap()
+    this.#fitMapToIndexMarkers() } else {
     this.#displayJourneyReshaped(this.map, this.markersValue)
-    this.#fitMapToJourney()
-    // this.#addMarkersToMap()
-    // this.#fitMapToMarkers()
-
+    this.#fitMapToJourney() }
   }
 
-  // #addMarkersToMap() {
-  //   this.markersValue.forEach((marker) => {
-  //     new mapboxgl.Marker()
-  //       console.log(marker)
-  //       .setLngLat([ marker.lng, marker.lat ])
-  //       .addTo(this.map)
-  //   });
-  // }
+  #addMarkersToIndexMap() {
+    this.markersIndexValue.forEach((marker) => {
+      new mapboxgl.Marker()
+        .setLngLat([ marker.lng, marker.lat ])
+        .addTo(this.map)
+    });
+  }
 
   #fitMapToJourney() {
     const bounds = new mapboxgl.LngLatBounds()
-    this.markersValue.forEach(marker => bounds.extend([ marker[0], marker[1] ]))
+    this.markersValue.forEach(markers => bounds.extend([ markers[0], markers[1] ]))
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
 
-  // #fitMapToMarkers() {
-  //   const bounds = new mapboxgl.LngLatBounds()
-  //   this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-  //   this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
-  // }
+  #fitMapToIndexMarkers() {
+    const bounds = new mapboxgl.LngLatBounds()
+    this.markersIndexValue.forEach(markersIndex => bounds.extend([ markersIndex.lng, markersIndex.lat ]))
+    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+  }
 
   #displayJourneyReshaped(map, coords) {
     //on transforme nos coordonées en string pour l'appel de l'API
@@ -74,7 +75,7 @@ export default class extends Controller {
                 },
                 paint: {
                     'line-color': "#14453D", //couleur de la ligne
-                    'line-width': 5, //epaisseur de la ligne
+                    'line-width': 3, //epaisseur de la ligne
                     'line-opacity': 0.8 //opacité de la ligne
                 }
             });
