@@ -1,0 +1,12 @@
+.card-exp {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  margin: 5px;
+}
+
+.container-city-scroll{
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+}
