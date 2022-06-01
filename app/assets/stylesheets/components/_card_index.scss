@@ -1,0 +1,10 @@
+.card-index {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(/assets/example-map.png);
+  background-size: cover;
+  background-position: center;
+  padding: 10px;
+  border-radius: $border-radius;
+  width: 22rem;
+  height: 22rem;
+  box-shadow: $box-shadow;
+}
