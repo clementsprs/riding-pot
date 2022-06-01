@@ -1,5 +1,9 @@
-<div style="width: 100%; height: 600px;"
-  data-controller="mapbox"
-  data-mapbox-markers-index-value="<%= @markersIndex.to_json %>"
-  data-mapbox-page-value="index"
-  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+<%= link_to 'Itinéraires', rides_path(choice: 'index_list'), class:"btn btn-primary" %>
+<%= link_to 'Carte', rides_path(choice: 'index_map'), class:"btn btn-primary" %>
+
+
+<% if params[:choice] == 'index_list' %>
+  <%= render "shared/index_list" %>
+<% elsif params[:choice] == 'index_map' %>
+  <%= render "shared/index_map" %>
+<% end %>
