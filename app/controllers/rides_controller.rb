@@ -28,5 +28,4 @@ class RidesController < ApplicationController
       }
     end
   end
-
 end
