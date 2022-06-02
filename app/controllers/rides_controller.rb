@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
+require 'fast_polylines'
 
 
 class RidesController < ApplicationController
@@ -20,12 +21,25 @@ class RidesController < ApplicationController
   end
 
   def index
-    @rides = Ride.all
-    @markersIndex = @rides.geocoded.map do |ride|
-      {
-        lat: ride.latitude,
-        lng: ride.longitude
-      }
+    if params[:address].present?
+      @rides = Ride.near(params[:address], 20)
+    else
+      @rides = Ride.all
+    end
+
+    if @rides == []
+      result =  Geocoder.search(params[:address]).first.coordinates
+      @markersIndex = [{
+          lat: result[0],
+          lng: result[1]
+        }]
+    else
+      @markersIndex = @rides.geocoded.map do |ride|
+        {
+          lat: ride.latitude,
+          lng: ride.longitude
+        }
+      end
     end
   end
 end

@@ -1,0 +1,28 @@
+<div class="navbar-bottom">
+  <%= link_to root_path do %>
+    <div class="navbar-bottom-icon">
+      <i class="fas fa-home"></i>
+      <p>Accueil</p>
+    </div>
+  <% end %>
+
+  <%= link_to rides_path do %>
+    <div class="navbar-bottom-icon">
+      <i class="fas fa-bicycle"></i>
+      <p>Sorties</p>
+    </div>
+  <% end %>
+
+  <%= link_to new_host_ride_path do %>
+    <div class="navbar-bottom-icon">
+    <i class="fas fa-plus"></i>
+      <p>Circuits</p>
+    </div>
+  <% end %>
+
+  <%= link_to dashboard_path do %>
+    <div class="navbar-bottom-icon">
+      <i class="fas fa-user"></i>
+      <p>Profil</p>
+    </div>
+  <% end %>

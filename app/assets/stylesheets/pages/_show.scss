@@ -1,0 +1,35 @@
+.show-box {
+  .description-ride {
+    background: $light-green;
+    padding: 1rem;
+    border-radius: 15px;
+    p {
+      margin: 0;
+      font-style: italic;
+    }
+  }
+
+  .mapbox {
+    position: relative;
+
+    p {
+      position: absolute;
+      top: 1rem;
+      z-index: 10;
+    }
+
+    .city-icon {
+      left: 1rem;
+    }
+
+    .geoloc-icon {
+      right: 1rem;
+    }
+
+    .main-button {
+      position: absolute;
+      bottom: 1rem;
+      z-index: 10;
+    }
+  }
+}

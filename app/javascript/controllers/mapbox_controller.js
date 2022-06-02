@@ -6,7 +6,7 @@ export default class extends Controller {
     apiKey: String,
     page: String,
     markers: Array,
-    markersIndex: Array
+    markersIndex: Array,
   }
 
   connect() {
@@ -18,9 +18,10 @@ export default class extends Controller {
     })
     if (this.pageValue === "index") {
     this.#addMarkersToIndexMap()
-    this.#fitMapToIndexMarkers() } else {
+    this.#fitMapToIndexMarkers()
+    } else {
     this.#displayJourneyReshaped(this.map, this.markersValue)
-    this.#fitMapToJourney() }
+    this.#fitMapToJourney()}
   }
 
   #addMarkersToIndexMap() {
@@ -46,7 +47,7 @@ export default class extends Controller {
   #displayJourneyReshaped(map, coords) {
     //on transforme nos coordonées en string pour l'appel de l'API
     var newCoords = [];
-    var maxVal = 97;
+    var maxVal = 85;
     var delta = Math.floor( coords.length / maxVal );
     for (var i = 0; i < coords.length; i=i+delta) {
       newCoords.push(coords[i]);
@@ -86,5 +87,6 @@ export default class extends Controller {
     };
     xhr.send();
 }
+
 
 }
