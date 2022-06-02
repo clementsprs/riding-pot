@@ -21,3 +21,21 @@ $icon-font: 'Pacifico', 'cursive';
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+a:active, a:hover {
+  text-decoration:none;
+}
+
+h1 {
+  font-family: pacifico;
+  color: #57A773;
+}
+
+h2{
+  font-size: 20px;
+  color: #BF4E30;
+}
+
+h4{
+  font-size: 15px;
+}
