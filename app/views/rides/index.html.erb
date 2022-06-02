@@ -1,3 +1,12 @@
+<%= form_tag rides_path, method: :get do %>
+  <%= text_field_tag :address,
+    params[:address],
+    class: "form-control",
+    placeholder: "Adresse"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
 <div style="width: 100%; height: 600px;"
   data-controller="mapbox"
   data-mapbox-markers-index-value="<%= @markersIndex.to_json %>"
