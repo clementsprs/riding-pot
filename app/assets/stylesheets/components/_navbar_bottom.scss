@@ -5,6 +5,11 @@
   display: flex;
   justify-content:space-around;
   padding-bottom: 20px;
+  position: sticky;
+  bottom: 0;
+  a {
+    text-decoration: none;
+  }
 }
 
 .navbar-bottom-icon {
