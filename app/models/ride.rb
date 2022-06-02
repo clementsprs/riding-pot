@@ -18,12 +18,12 @@ class Ride < ApplicationRecord
     end
 
     new_coords = []
-    max_val = 96
+    max_val = 35
 
-    delta = (markers.length / max_val).floor
+    delta = (markers.length / max_val).to_i
     i = 0
 
-    while i < markers.length
+    while i <= markers.length
       new_coords.push(markers[i].reverse)
       i += delta
     end
