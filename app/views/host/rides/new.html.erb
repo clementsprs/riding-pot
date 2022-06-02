@@ -1,2 +1,26 @@
-<h1>Host::Rides#new</h1>
-<p>Find me in app/views/host/rides/new.html.erb</p>
+<div class="adding-ride-form">
+  <h4>Ajouter une nouvelle sortie vélo</h4>
+    <%= simple_form_for [:host, @ride] do |f| %>
+      <div class="row">
+        <div class="col-6"><%= f.input :title, label: "Titre", placeholder: "Indique le titre de ta sortie"%></div>
+        <div class="col-6"><%= f.input :description, label: "Description", placeholder: "Ajoute quelques lignes à propos de ta sortie"%></div>
+        <div class="col-6"><%= f.input :starting_point, label: "Point_depart", placeholder: "Indique le point de départ de ta sortie"%></div>
+      </div>
+      <div class="row">
+        <div class="col-6"><%= f.input :elevation, label: "Elevation", placeholder: "Indique le dénivelé"%></div>
+        <div class="col-6"><%= f.input :distance_ride, label: "Distance", placeholder: "Indique la distance en kilomètres"%></div>
+        <div class="col-6"><%= f.input :pace_min, label: "Pace_min", placeholder: "Indique le rythme minimum"%></div>
+        <div class="col-6"><%= f.input :pace_max, label: "Pace_max", placeholder: "Indique le rythme maximum"%></div>
+      </div>
+      <div class="status row">
+        <div class="col-6"><%= f.input :attendees_max, label: "Max_participants", placeholder: "Ajoute le nombre de participants maximum" %></div>
+        <div class="col-6"><%= f.input :date, as: :date, label: "Date et heure" %><%= f.time_field :starting_time, as: :time, min: 'hh:mm:ss',max: 'hh:mm:ss' %></div>
+      </div>
+      <div class="row">
+        <div class="col-6"><%= f.input :gpx_file, as: :file %></div>
+      </div>
+      <div class="d-grid col-3 mx-auto">
+        <%= f.submit "Ajouter", class: "btn btn-main m-3" %>
+      </div>
+    <% end %>
+  </div>

@@ -7,6 +7,7 @@ class Host::RidesController < ApplicationController
     @ride = Ride.new(ride_params)
     @user = current_user
     @ride.user = @user
+    @ride.gpx_file = params[:ride][:gpx_file].read
     if @ride.save
       redirect_to ride_path(@ride)
     else
@@ -34,6 +35,6 @@ class Host::RidesController < ApplicationController
   private
 
   def ride_params
-    params.require(:ride).permit(:distance, :title, :date, :starting_time, :starting_point, :description, :elevation, :pace_min, :pace_max, :attendees_max)
+    params.require(:ride).permit(:distance_ride, :title, :date, :starting_time, :starting_point, :description, :elevation, :pace_min, :pace_max, :attendees_max)
   end
 end
