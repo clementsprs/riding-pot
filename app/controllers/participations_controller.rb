@@ -2,11 +2,14 @@ class ParticipationsController < ApplicationController
   def create
     @participation = Participation.new
     @user = current_user
-    @ride = Ride.find(params[:id])
+    @ride = Ride.find(params[:ride_id])
     @participation.user = @user
     @participation.ride = @ride
-    @participation.save
-    redirect_to ride_path(@ride)
+    if @participation.save
+      redirect_to ride_path(@ride)
+    else
+      redirect_to ride_path(@ride), notice: @participation.errors.messages.first[1].first
+    end
   end
 
   def destroy

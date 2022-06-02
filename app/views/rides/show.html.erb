@@ -1,69 +1,74 @@
 
-<div class="show_page">
-  <div class="navbar">
-    <button>bouton retour</button>
-    <link href="main.css" rel="stylesheet">
-    <h1>Riding Pot</h1>
+<div class="show-box">
+
+  <div class="mapbox">
+    <div class="d-flex justify-content-between">
+      <p class='city-icon'>Nantes</p>
+      <p class='geoloc-icon'> <i class="fas fa-map-marker-alt"></i> 600 m</p>
+    </div>
+    <div style="width: 100%; height: 400px;"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+    <%# <%= simple_form_for [@ride, @participation] do |f| %>
+      <%# <%= f.submit "Rejoindre", class: "main-button" %>
+    <%= button_to "Rejoindre", ride_participations_path(@ride), method: :post, class: "main-button" %>
+    <%# <% end %>
   </div>
 
+  <div class="show-box-info m-3">
 
-
-  <div class="carte&info">
-
-    <div class="mapbox">
-      <div style="width: 100%; height: 600px;"
-        data-controller="mapbox"
-        data-mapbox-markers-value="<%= @markers.to_json %>"
-        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-    </div>
-
-    <div class="logo-ville">nantes</div>
-    <div class="logo_distance">
-      <div class="icon-distance"></div>
-      400m
-    </div>
-
-    <div class="button-rejoindre">rejoindre</div>
-  </div>
-  <div class="show-description-seconde-partie">
-    <div class="informations-ride">
-      <h5>Sortie Sud Nantes</h5>
-      <p>icon calendrier</p>
-      <p>date</p>
-      <p>icon lieu</p>
-      <p>adresse</p>
-      <p>icon horaire</p>
-      <p>heure</p>
-    </div>
-
-    <div class="section-block-informations">
-      <div class="block-1">
-        <p>icon distance</p>
-        <p>80 km</p>
+    <div class="card-ride-info">
+      <div class="date-time-icon">
+        <div class="date">
+          <i class="fas fa-calendar"></i>
+          <p> <%= @ride.date %> </p>
+        </div>
+        <div class="time">
+          <i class="fas fa-clock"></i>
+          <p> <%= @ride.starting_time %> </p>
+        </div>
       </div>
-      <div class="block-2">
-        <p>icon denivelé</p>
-        <p>200m</p>
-      </div>
-      <div class="block-3">
-        <p>icon allure</p>
-        <p>25km/h</p>
-      </div>
-      <div class="block-4">
-        <p>icon participants</p>
-        <p>6</p>
+      <div class="address">
+        <i class="fas fa-map-pin"></i>
+        <p> <%= @ride.starting_point.capitalize %> </p>
       </div>
     </div>
 
-    <div class="section-block-participants">
-      <p>participants</p>
-      <div class="rangement avatars"></div>
+    <div class="d-flex justify-content-between mb-3">
+      <div class="distance icon">
+        <i class="fas fa-route"></i>
+        <p> <%= @ride.distance_ride %> km</p>
+      </div>
+      <div class="icon">
+        <i class="fas fa-mountain"></i>
+        <p> <%= @ride.elevation %> m</p>
+      </div>
+      <div class="icon">
+        <i class="fas fa-tachometer-alt"></i>
+        <p> <%= @ride.pace_max %> km/h</p>
+      </div>
+      <div class="icon">
+        <i class="fas fa-users"></i>
+        <p> <%= @ride.participations.count + 1%> </p>
+      </div>
     </div>
 
-    <div class="section-block-description">
-      <h5>description</h5>
-      <p> superpiapzihf afhezihfiazflnfdhfah</p>
+    <div class="participants mb-3">
+      <p>Participants</p>
+      <div class="participants-avatar">
+        <p> <%= cl_image_tag @ride.user.photo.key, class: "avatar avatar-host" %> </p>
+        <% @ride.participations.each do |participation| %>
+          <p> <%= cl_image_tag participation.user.photo.key, class: "avatar" %> </p>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="description-ride">
+      <p> <%= @ride.description %> </p>
     </div>
 
   </div>
+
 </div>
