@@ -9,21 +9,9 @@
 }
 
 .avatar-host {
-  background-image: url("/assets/avatar.jpg");
-  background-size: cover;
-  background-position: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
   border: $green 2px solid;
 }
 
 .avatar-joined {
-  background-image: url("/assets/avatar.jpg");
-  background-size: cover;
-  background-position: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
   border: $orange 2px solid;
 }

@@ -10,6 +10,11 @@
   background-color: $light-gray;
   font-family: $icon-font;
   color: $dark-green;
+
+  .avatar {
+    margin-left: -10px;
+  }
+  
   p {
     margin: 0;
   }
