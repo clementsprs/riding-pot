@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
+require 'fast_polylines'
 
 
 class RidesController < ApplicationController

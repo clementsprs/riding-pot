@@ -18,9 +18,10 @@ export default class extends Controller {
     })
     if (this.pageValue === "index") {
     this.#addMarkersToIndexMap()
-    this.#fitMapToIndexMarkers() } else {
+    this.#fitMapToIndexMarkers()
+    } else {
     this.#displayJourneyReshaped(this.map, this.markersValue)
-    this.#fitMapToJourney() }
+    this.#fitMapToJourney()}
   }
 
   #addMarkersToIndexMap() {
@@ -86,5 +87,6 @@ export default class extends Controller {
     };
     xhr.send();
 }
+
 
 }
