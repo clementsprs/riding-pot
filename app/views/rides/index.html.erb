@@ -1,8 +1,7 @@
 <%= link_to 'Itinéraires', rides_path(choice: 'index_list'), class:"btn btn-primary" %>
 <%= link_to 'Carte', rides_path(choice: 'index_map'), class:"btn btn-primary" %>
 
-
-<% if params[:choice] == 'index_list' %>
+<% if params[:choice] == 'index_list' || ''%>
   <%= render "shared/index_list" %>
 <% elsif params[:choice] == 'index_map' %>
   <%= render "shared/index_map" %>
@@ -16,4 +15,3 @@
   %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
-
