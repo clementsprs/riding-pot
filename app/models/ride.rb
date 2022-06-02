@@ -29,4 +29,9 @@ class Ride < ApplicationRecord
     end
     FastPolylines.encode(new_coords)
   end
+
+  def city
+    results = Geocoder.search([latitude,longitude])
+    return results.first.city
+  end
 end

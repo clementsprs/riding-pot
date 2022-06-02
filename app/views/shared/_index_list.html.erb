@@ -1,7 +1,12 @@
 <div class="container">
   <% @rides.each do |ride| %>
-    <div>
-      <img src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/path-2+f50a0a(<%= ride.mapbox_path %>)/auto/800x800?access_token=<%= ENV['MAPBOX_API_KEY'] %>">
+    <%= link_to cl_image_tag("https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/path-2+f50a0a(#{ride.mapbox_path})/auto/800x800?access_token=#{ENV['MAPBOX_API_KEY']}"), ride_path(ride) %>
+      <p><%= Geocoder::Calculations.distance_between([47.858205,2.294359], [ride.latitude,ride.longitude]).to_i%>kms 📌</p>
+      <p><%= ride.city %></p>
+      <p><%= ride.distance %>distance</p>
+      <p><%= ride.elevation %>elevation</p>
+      <p><%= ride.pace_min %><%= ride.pace_max %></p>
+      <p><%= ride.participations.count %></p>
     </div>
   <% end %>
 </div>
