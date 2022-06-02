@@ -1,12 +1,27 @@
-<div class="container">
-  <% @rides.each do |ride| %>
-    <%= link_to cl_image_tag("https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/path-2+f50a0a(#{ride.mapbox_path})/auto/800x800?access_token=#{ENV['MAPBOX_API_KEY']}"), ride_path(ride) %>
-      <p><%= Geocoder::Calculations.distance_between([47.858205,2.294359], [ride.latitude,ride.longitude]).to_i%>kms 📌</p>
-      <p><%= ride.city %></p>
-      <p><%= ride.distance %>distance</p>
-      <p><%= ride.elevation %>elevation</p>
-      <p><%= ride.pace_min %><%= ride.pace_max %></p>
-      <p><%= ride.participations.count %></p>
+<% @rides.each do |ride| %>
+  <div class="card-index" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/path-2+50a0a(#{ride.mapbox_path})/auto?access_token=#{ENV['MAPBOX_API_KEY']}"%>')">
+    <div class="d-flex justify-content-between">
+      <p class='city-icon'><%= ride.city.capitalize %></p>
+      <p class='geoloc-icon'> <i class="fas fa-map-marker-alt"></i> <%= Geocoder::Calculations.distance_between([47.858205,2.294359], [ride.latitude,ride.longitude]).to_i%> m</p>
     </div>
-  <% end %>
-</div>
+
+    <div class="d-flex justify-content-between">
+      <div class="icon">
+        <i class="fas fa-route"></i>
+        <p><%= ride.distance_ride %> km</p>
+      </div>
+      <div class="icon">
+        <i class="fas fa-mountain"></i>
+        <p><%= ride.elevation %> m</p>
+      </div>
+      <div class="icon">
+        <i class="fas fa-tachometer-alt"></i>
+        <p><%= ride.pace_min %> - <%= ride.pace_max %> km/h</p>
+      </div>
+      <div class="icon">
+        <i class="fas fa-users"></i>
+        <p><%= ride.participations.count %></p>
+      </div>
+    </div>
+  </div>
+<% end %>

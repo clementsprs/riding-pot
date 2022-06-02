@@ -18,7 +18,7 @@ class Ride < ApplicationRecord
     end
 
     new_coords = []
-    max_val = 35
+    max_val = 40
 
     delta = (markers.length / max_val).to_i
     i = 0
