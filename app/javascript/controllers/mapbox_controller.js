@@ -6,7 +6,7 @@ export default class extends Controller {
     apiKey: String,
     page: String,
     markers: Array,
-    markersIndex: Array
+    markersIndex: Array,
   }
 
   connect() {
