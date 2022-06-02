@@ -14,3 +14,9 @@
     margin: 0;
   }
 }
+
+.container-city-scroll{
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+}

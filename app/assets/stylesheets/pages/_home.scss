@@ -1,1 +1,54 @@
 // Specific CSS for your home-page
+.first-spitch{
+  background-color: #14453D;
+  height: 80px;
+
+    p{
+    color: #DEE9E7;
+    text-align: center;
+    margin-left: 36px;
+    margin-right: 36px;
+    }
+
+    span{
+      color: #F18F01;
+    }
+}
+
+.presentation{
+
+  border-radius: 20px;
+  background-color: lightgray;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 50px;
+  margin-right: 50px;
+
+  h4{
+    text-align: center;
+    padding-top: 5px;
+  }
+
+  p{
+    text-align: center;
+    font-size: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+.scroll_city{
+
+    h2{
+      margin-left: 5px;
+    }
+
+}
+
+.scroll_ride{
+
+  margin-top: 20px;
+
+    h2{
+      margin-left: 5px;
+    }
+}

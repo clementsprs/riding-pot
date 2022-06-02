@@ -1,9 +1,22 @@
-.card-home-ride {
-  display: block;
-  padding: 5px;
+.card-home-city {
+  padding: 10px;
   margin: 10px;
-  background-color:aquamarine;
-  width: 55vw;
-  height: 40vh;
+  width: 13rem;
+  height: 15rem;
   border-radius: 20px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(/assets/nantes-city.jpg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+
+  p {
+    margin: 0;
+  }
+}
+
+.container-city-scroll{
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
 }
