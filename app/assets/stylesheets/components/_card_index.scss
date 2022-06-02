@@ -4,7 +4,10 @@
   background-position: center;
   padding: 10px;
   border-radius: $border-radius;
-  width: 22rem;
   height: 22rem;
   box-shadow: $box-shadow;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: auto
 }

@@ -1,0 +1,21 @@
+.participants {
+  padding: 10px 15px;
+  border-radius: $border-radius;
+  width: 14rem;
+  height: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: auto;
+  background-color: $light-gray;
+  font-family: $icon-font;
+  color: $dark-green;
+  p {
+    margin: 0;
+  }
+}
+
+.participants-avatar {
+  display: flex;
+  justify-content: center;
+}

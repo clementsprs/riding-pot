@@ -1,20 +1,29 @@
 .avatar {
+  background-image: url("/assets/avatar.jpg");
+  background-size: cover;
+  background-position: center;
   width: 40px;
+  height: 40px;
   border-radius: 50%;
+  border: $light-gray 2px solid;
 }
-.avatar-large {
-  width: 56px;
-  border-radius: 50%;
-}
-.avatar-bordered {
+
+.avatar-host {
+  background-image: url("/assets/avatar.jpg");
+  background-size: cover;
+  background-position: center;
   width: 40px;
+  height: 40px;
   border-radius: 50%;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
+  border: $green 2px solid;
 }
-.avatar-square {
+
+.avatar-joined {
+  background-image: url("/assets/avatar.jpg");
+  background-size: cover;
+  background-position: center;
   width: 40px;
-  border-radius: 0px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
+  height: 40px;
+  border-radius: 50%;
+  border: $orange 2px solid;
 }
