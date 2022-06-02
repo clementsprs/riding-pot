@@ -1,0 +1,40 @@
+.main-button {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  background-color: $dark-green;
+  color: $light-gray;
+  padding: 10px;
+  margin: 5px auto;
+  font-size: 20px;
+  border-radius: 15px;
+  width: 80vw;
+}
+
+.second-button {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  background-color: $green;
+  color: $light-gray;
+  padding: 5px;
+  margin: 5px auto;
+  font-size: 20px;
+  border-radius: 15px;
+  width: 40vw;
+  font-family: 'Comfortaa', cursive;
+}
+
+.third-button {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  background-color: $light-gray;
+  color: $green;
+  padding: 5px;
+  margin: 5px auto;
+  font-size: 20px;
+  border-radius: 15px;
+  width: 40vw;
+  font-family: 'Comfortaa', cursive;
+}
