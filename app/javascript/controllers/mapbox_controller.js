@@ -47,7 +47,7 @@ export default class extends Controller {
   #displayJourneyReshaped(map, coords) {
     //on transforme nos coordonées en string pour l'appel de l'API
     var newCoords = [];
-    var maxVal = 97;
+    var maxVal = 85;
     var delta = Math.floor( coords.length / maxVal );
     for (var i = 0; i < coords.length; i=i+delta) {
       newCoords.push(coords[i]);

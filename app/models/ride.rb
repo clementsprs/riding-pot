@@ -3,7 +3,7 @@ class Ride < ApplicationRecord
   has_many :participations
   geocoded_by :starting_point
   after_validation :geocode, if: :will_save_change_to_starting_point?
-  validates :distance_ride, :title, :date, :starting_time, :starting_point, :description, :elevation, :pace_min, :pace_max, :attendees_max, presence: true
+  validates :distance_ride, :title, :date, :starting_point, :description, :elevation, :pace_min, :pace_max, :attendees_max, presence: true
 
   def mapbox_path
     doc = Nokogiri::XML(gpx_file)
@@ -18,7 +18,7 @@ class Ride < ApplicationRecord
     end
 
     new_coords = []
-    max_val = 35
+    max_val = 23
 
     delta = (markers.length / max_val).to_i
     i = 0
