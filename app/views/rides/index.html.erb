@@ -1,8 +1,8 @@
 <%# <div><a class='second-button' href="">Itinéraires</a></div>
 <div><a class='third-button' href="">Carte</a></div> %>
 <div class="d-flex justify-content-between my-2">
-  <%= link_to 'Itinéraires', rides_path(choice: "index_list"), class:"second-button" %>
-  <%= link_to 'Carte', rides_path(choice: 'index_map'), class:"third-button" %>
+  <%= link_to 'Itinéraires', rides_path(choice: "index_list"), class: (params[:choice] == "index_list" || params[:choice].nil? ? "second-button" : "third-button") %>
+  <%= link_to 'Carte', rides_path(choice: 'index_map'), class: (params[:choice] == "index_map" ? "second-button" : "third-button") %>
 </div>
 
 <% if params[:choice] == 'index_list' || params[:choice].nil? %>

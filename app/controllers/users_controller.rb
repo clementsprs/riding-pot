@@ -6,17 +6,17 @@ require 'fast_polylines'
 class UsersController < ApplicationController
 
   def dashboard
-    participations = Ride.joins(:participations).where(participation: { user: current_user })
+    participations = Ride.joins(:participations).where(participations: { user: current_user })
     rides = Ride.where(user: current_user)
 
     case params[:choice]
     when 'past_rides'
-      @past_participations = participations.where(status: 'done')
-      @past_rides = rides.where(status: 'done')
-      raise
+      # raise
+      @participations = participations.where(status: 'done')
+      @rides = rides.where(status: 'done')
     when 'upcoming_rides'
-      @upcoming_rides = rides.where(status: 'upcoming')
-      @upcoming_participations = participations.where(status: 'upcoming')
+      @rides = rides.where(status: 'upcoming')
+      @participations = participations.where(status: 'upcoming')
     end
 
   end

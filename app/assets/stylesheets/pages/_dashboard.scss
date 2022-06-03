@@ -8,3 +8,9 @@ h1 {
   display: flex;
   justify-content: space-around;
 }
+
+menu {
+  a:active, a:hover {
+    text-decoration:none;
+  }
+}
