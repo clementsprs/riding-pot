@@ -3,8 +3,8 @@
   <%# MAP %>
   <div class="mapbox">
     <div class="d-flex justify-content-between">
-      <p class='city-icon'>Nantes</p>
-      <p class='geoloc-icon'> <i class="fas fa-map-marker-alt"></i> 600 m</p>
+      <p class='city-icon'><%= @ride.city %></p>
+      <p class='geoloc-icon'> <i class="fas fa-map-marker-alt"></i> <%= @ride.elevation %> m</p>
     </div>
     <div style="width: 100%; height: 400px;"
       data-controller="mapbox"
