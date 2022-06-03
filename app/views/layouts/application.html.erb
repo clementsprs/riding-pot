@@ -15,7 +15,12 @@
   <body>
     <%= render 'shared/flashes' %>
 
-    <%= render 'shared/navbar_top' %>
+    <% if params[:action] == "index" %>
+      <%= render "shared/navbar_top_search" %>
+    <% else %>
+      <%= render "shared/navbar_top" %>
+    <% end %>
+
 
     <%= yield %>
 
