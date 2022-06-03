@@ -1,21 +1,39 @@
-.card-home-city {
+.card-home-ride {
   padding: 10px;
   margin: 10px;
-  width: 13rem;
+  min-width: 13rem;
   height: 15rem;
   border-radius: 20px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(/assets/nantes-city.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(/assets/example-map.png);
   background-size: cover;
   background-position: center;
-  display: flex;
   align-items: flex-end;
 
   p {
     margin: 0;
   }
+
+  .cardridetop{
+    display: flex;
+    justify-content: flex-end;
+
+  }
+
+  .cardridebot{
+    display: flex;
+    margin-top: 115px;
+    justify-content: space-around;
+
+  }
+
+  .icon{
+    height: 60px;
+    width: 60px;
+
+  }
 }
 
-.container-city-scroll{
+.container-ride-scroll{
   overflow-x: scroll;
   overflow-y: hidden;
   display: flex;
