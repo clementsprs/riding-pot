@@ -1,5 +1,8 @@
 <div class="box m-3">
-
+  <% if @rides == [] %>
+    <p>Aucune sortie trouvée... N'hésite pas à en créer une !</p>
+    <%= link_to "Créer une sortie", new_host_ride_path, class:"main-button" %>
+  <% else %>
     <% @rides.each do |ride| %>
       <% url = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/path-2+f50a0a(#{ride.mapbox_path})/auto/800x800?access_token=#{ENV['MAPBOX_API_KEY']}" %>
       <%= link_to ride_path(ride) do %>
@@ -28,6 +31,7 @@
             </div>
           </div>
         </div>
+      <% end %>
       <% end %>
   <% end %>
 
