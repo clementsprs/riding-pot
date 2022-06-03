@@ -1,12 +1,13 @@
-
 .navbar-top{
-  background-color: #14453D;
+  background-color: $dark-green;
   height: 80px;
+  display: flex;
+  align-items: center;
 
   .img-logo-title{
     text-decoration: none;
     margin-left: 20px;
-    
+
     img {
       width: 80px;
       height: 80px;
@@ -15,6 +16,8 @@
     h1 {
       margin-bottom: 0;
       margin-top: 22px;
+      font-family: $icon-font;
+      color: $light-gray;
     }
 
   }

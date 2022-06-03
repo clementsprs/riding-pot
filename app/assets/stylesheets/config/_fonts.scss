@@ -25,17 +25,17 @@ $icon-font: 'Pacifico', 'cursive';
 a:active, a:hover {
   text-decoration:none;
 }
+// Intégré directement dans le fichier _navbar_top_scss
+// h1 {
+//   font-family: $icon-font;
+//   color: $light-gray;
+// }
 
-h1 {
-  font-family: pacifico;
-  color: #57A773;
-}
+// h2{
+//   font-size: 20px;
+//   color: $terracota;
+// }
 
-h2{
-  font-size: 20px;
-  color: #BF4E30;
-}
-
-h4{
-  font-size: 15px;
-}
+// h4{
+//   font-size: 15px;
+// }
