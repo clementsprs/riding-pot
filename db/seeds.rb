@@ -50,8 +50,6 @@ puts "Seeding the participations"
 
 participation1 = Participation.new(user: user2, ride: ride1)
 participation1.save
-participation2 = Participation.new(user: user1, ride: ride2)
-participation2.save
 participation3 = Participation.new(user: user3, ride: ride1)
 participation3.save
 participation4 = Participation.new(user: user4, ride: ride2)
