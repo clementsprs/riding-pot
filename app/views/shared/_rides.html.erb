@@ -1,6 +1,6 @@
-<% current_user.rides.each do |ride| %>
+<% rides.each do |ride| %>
 <% url = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/path-2+f50a0a(#{ride.mapbox_path})/auto/800x800?access_token=#{ENV['MAPBOX_API_KEY']}" %>
-  <div class="card-dashboard-upcoming mb-3" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%= url %>')">
+  <div class="card-dashboard-upcoming mb-3" style="background-image: linear-gradient(rgba(0, 0, 0, <%= ride_status_css(params[:choice]) %>), rgba(0, 0, 0, <%= ride_status_css(params[:choice]) %>)), url('<%= url %>')">
     <div class="d-flex flex-row-reverse">
       <p class='city-icon'><%= ride.city.capitalize %></p>
     </div>
@@ -20,22 +20,22 @@
   </div>
 <% end %>
 
-<% current_user.participations.each do |participation| %>
-<% url = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/path-2+f50a0a(#{participation.ride.mapbox_path})/auto/800x800?access_token=#{ENV['MAPBOX_API_KEY']}" %>
-  <div class="card-dashboard-upcoming mb-3" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%= url %>')">
+<% participations.each do |participation| %>
+<% url = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/path-2+f50a0a(#{participation.mapbox_path})/auto/800x800?access_token=#{ENV['MAPBOX_API_KEY']}" %>
+  <div class="card-dashboard-upcoming mb-3" style="background-image: linear-gradient(rgba(0, 0, 0, <%= ride_status_css(params[:choice]) %>), rgba(0, 0, 0, <%= ride_status_css(params[:choice]) %>)), url('<%= url %>')">
     <div class="d-flex flex-row-reverse">
-      <p class='city-icon'><%= participation.ride.city.capitalize %></p>
+      <p class='city-icon'><%= participation.city.capitalize %></p>
     </div>
     <div class="d-flex flex-column">
       <div class="date-time-icon">
         <div class="date">
           <i class="fas fa-calendar"></i>
-          <p><%= participation.ride.date.strftime("%d-%m-%Y") %></p>
+          <p><%= participation.date.strftime("%d-%m-%Y") %></p>
         </div>
 
         <div class="time">
           <i class="fas fa-clock"></i>
-          <p><%= participation.ride.starting_time.strftime("%k:%M") %></p>
+          <p><%= participation.starting_time.strftime("%k:%M") %></p>
         </div>
       </div>
     </div>
