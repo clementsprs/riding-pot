@@ -1,3 +1,4 @@
+// Specific CSS for your show
 .show-box {
   .description-ride {
     background: $light-green;
@@ -26,10 +27,11 @@
       right: 1rem;
     }
 
-    .main-button {
+    .relative-box {
       position: absolute;
       bottom: 1rem;
       z-index: 10;
+      width: 100%;
     }
   }
 }

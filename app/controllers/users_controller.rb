@@ -1,3 +1,8 @@
+require 'rubygems'
+require 'nokogiri'
+require 'open-uri'
+require 'fast_polylines'
+
 class UsersController < ApplicationController
 
   def dashboard
@@ -5,13 +10,12 @@ class UsersController < ApplicationController
     rides = Ride.where(user: current_user)
 
     case params[:choice]
-    when 'past_participations'
-      @past_participations = participations.where(status: 'done')
-    when 'upcoming_participations'
-      @upcoming_rides = rides.where(status: 'upcoming')
     when 'past_rides'
+      @past_participations = participations.where(status: 'done')
       @past_rides = rides.where(status: 'done')
-    when '' || 'upcoming_rides'
+      raise
+    when 'upcoming_rides'
+      @upcoming_rides = rides.where(status: 'upcoming')
       @upcoming_participations = participations.where(status: 'upcoming')
     end
 

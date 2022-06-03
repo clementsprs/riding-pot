@@ -1,16 +1,14 @@
-<h1>My dashboard</h1>
+<div class="d-flex justify-content-between my-2">
+  <%= link_to 'Précédentes', dashboard_path(choice: 'past_rides'), class:"third-button" %>
+  <%= link_to 'A venir', dashboard_path, class:"second-button" %>
+</div>
 
-<%= link_to 'My upcoming participations', dashboard_path, class:"btn btn-primary" %>
-<%= link_to 'My past participations', dashboard_path(choice: 'past_participations'), class:"btn btn-primary" %>
-<%= link_to 'My upcoming rides', dashboard_path(choice: 'upcoming_rides'), class:"btn btn-primary" %>
-<%= link_to 'My past rides', dashboard_path(choice: 'past_rides'), class:"btn btn-primary" %>
-
-<% if params[:choice] == 'past_participations' %>
-  <h1>My past participations</h1>
-<% elsif params[:choice] == 'upcoming_rides' %>
-  <h1>My upcoming rides</h1>
-<% elsif params[:choice] == 'past_rides' %>
-  <h1>My past rides</h1>
-<% elsif params[:choice] == 'upcoming_participations' || '' %>
-  <h1>My upcoming participations</h1>
-<% end %>
+<div class="box m-3">
+  <% if params[:choice] == 'past_rides' %>
+    <h1>Mes sorties précédentes</h1>
+    <%= render 'shared/past_rides' %>
+  <% elsif params[:choice] == 'upcoming_rides' || '' %>
+    <h1>Mes sorties à venir</h1>
+    <%= render 'shared/upcoming_rides' %>
+  <% end %>
+</div>
