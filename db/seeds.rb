@@ -39,11 +39,11 @@ user4.save
 puts "Seeding the rides"
 
 ride1 = File.read('db/fixtures/ride1.txt')
-ride1 = Ride.new(title: 'Sortie Nantes Sud', user: user1, distance_ride: 60.5, gpx_file: ride1, description: "Je propose une petite sortie dans le sud de Nantes. J'ai dejà fait cet itinéraire et c'est très agréable", elevation: 419, pace_min: 25, pace_max: 28, attendees_max: 30, starting_point: '19 rue de Friedland 44000 Nantes', status: 'upcoming', date: DateTime.parse("03/06/2022"), starting_time: DateTime.parse("03/06/2022 17:00"))
+ride1 = Ride.new(title: 'Sortie Nantes Sud', user: user1, distance_ride: 60.5, gpx_file: ride1, description: "Je propose une petite sortie dans le sud de Nantes. J'ai dejà fait cet itinéraire et c'est très agréable", elevation: 419, pace_min: 25, pace_max: 28, attendees_max: 30, starting_point: '19 rue de Friedland 44000 Nantes', status: 'upcoming', date: DateTime.parse("03/06/2022"), starting_time: Time.parse("03/06/2022 17:00"))
 ride1.save
 
 ride2 = File.read('db/fixtures/ride2.txt')
-ride2 = Ride.new(title: 'Sortie vers la mer', user: user2, distance_ride: 80.9, gpx_file: ride2, description: "Deuxième édition de ma sortie préférée à Nantes en direction de la mer. Soyez à l'heure ! ", elevation: 428, pace_min: 28, pace_max: 32, attendees_max: 15, starting_point: 'place Graslin Nantes', status: 'done', date: DateTime.parse("06/06/2022"), starting_time: DateTime.parse("03/06/2022 11:00"))
+ride2 = Ride.new(title: 'Sortie vers la mer', user: user2, distance_ride: 80.9, gpx_file: ride2, description: "Deuxième édition de ma sortie préférée à Nantes en direction de la mer. Soyez à l'heure ! ", elevation: 428, pace_min: 28, pace_max: 32, attendees_max: 15, starting_point: 'place Graslin Nantes', status: 'done', date: DateTime.parse("06/06/2022"), starting_time: Time.parse("06/06/2022 11:00"))
 ride2.save
 
 puts "Seeding the participations"

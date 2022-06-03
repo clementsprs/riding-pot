@@ -1,16 +1,17 @@
 
-<div class="first-spitch d-flex justify-content-center">
+<div class="first-spitch justify-content-center">
   <p>La meilleure platerforme pour<span> partager des sorties vélo</span> à plusieurs et autour de chez toi !</p>
-</div>
-
-<div class=" equipment-form d-flex justify-content-around">
-      <form action="/index" accept-charset="UTF-8" method="get">
-        <div class="search-form-control form-group">
-          <button name="button" type="submit" class="btn btn-flat">
-          <i class="fas fa-search text-blue"></i>
-          </button>
-        </div>
-      </form>
+  <div class="d-flex justify-content-around">
+  <%= form_tag rides_path, class: "search-form-control form-group",  method: :get do %>
+      <%= text_field_tag :address,
+        params[:address],
+        class: "form-control string required",
+        placeholder: "Adresse" %>
+      <button name="button" type="submit" class="btn btn-flat">
+      <i class="fas fa-search"></i>
+    </button>
+  <% end %>
+  </div>
 </div>
 
 <div class="presentation">
