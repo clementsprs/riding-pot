@@ -1,6 +1,6 @@
 <% current_user.rides.each do |ride| %>
 <% url = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/path-2+f50a0a(#{ride.mapbox_path})/auto/800x800?access_token=#{ENV['MAPBOX_API_KEY']}" %>
-  <div class="card-dashboard-upcoming mb-3" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%= url %>')">
+  <div class="card-dashboard-upcoming mb-3" style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('<%= url %>')">
     <div class="d-flex flex-row-reverse">
       <p class='city-icon'><%= ride.city.capitalize %></p>
     </div>
@@ -22,7 +22,7 @@
 
 <% current_user.participations.each do |participation| %>
 <% url = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/path-2+f50a0a(#{participation.ride.mapbox_path})/auto/800x800?access_token=#{ENV['MAPBOX_API_KEY']}" %>
-  <div class="card-dashboard-upcoming mb-3" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%= url %>')">
+  <div class="card-dashboard-upcoming mb-3" style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('<%= url %>')">
     <div class="d-flex flex-row-reverse">
       <p class='city-icon'><%= participation.ride.city.capitalize %></p>
     </div>

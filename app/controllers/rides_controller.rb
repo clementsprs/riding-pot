@@ -16,13 +16,15 @@ class RidesController < ApplicationController
       result =  Geocoder.search(params[:address]).first.coordinates
       @markersIndex = [{
           lat: result[0],
-          lng: result[1]
+          lng: result[1],
+          image_url: helpers.asset_url("Map Marker - Riding Pot.png")
         }]
     else
       @markersIndex = @rides.geocoded.map do |ride|
         {
           lat: ride.latitude,
-          lng: ride.longitude
+          lng: ride.longitude,
+          image_url: helpers.asset_url("Map Marker - Riding Pot.png")
         }
       end
     end
@@ -41,5 +43,5 @@ class RidesController < ApplicationController
       ]
     end
   end
-  
+
 end
