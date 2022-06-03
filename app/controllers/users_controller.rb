@@ -13,7 +13,6 @@ class UsersController < ApplicationController
     when 'past_rides'
       @past_participations = participations.where(status: 'done')
       @past_rides = rides.where(status: 'done')
-      raise
     when 'upcoming_rides'
       @upcoming_rides = rides.where(status: 'upcoming')
       @upcoming_participations = participations.where(status: 'upcoming')
