@@ -10,6 +10,7 @@ require "open-uri"
 
 puts "Cleaning the database..."
 
+Comment.destroy_all
 User.destroy_all
 Ride.destroy_all
 Participation.destroy_all
