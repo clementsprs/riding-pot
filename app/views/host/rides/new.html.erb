@@ -6,7 +6,9 @@
       <div class="row">
         <div class="col-12"><%= f.input :title, label: false, placeholder: "Titre de ta sortie"%></div>
         <div class="col-12"><%= f.input :description, label: false, placeholder: "Ajoute quelques lignes à propos de ta sortie"%></div>
-        <div class="col-6"><%= f.input :starting_point, label: false, placeholder: "Point de départ"%></div>
+        <div class="col-12"><%= f.input :starting_point, label: false,
+              input_html: { data: { geocoder_target: "address", placeholder: "Titre de ta sortie"}, class: "d-none" },
+              wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } }, label: false, placeholder: "Point de départ" %></div>
         <div class="col-6"><%= f.input :elevation, label: false, placeholder: "Dénivelé"%></div>
         <div class="col-6"><%= f.input :distance_ride, label: false, placeholder: "Distance"%></div>
         <div class="col-6"><%= f.input :pace_min, label: false, placeholder: "Rythme min"%></div>

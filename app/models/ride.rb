@@ -1,9 +1,11 @@
 class Ride < ApplicationRecord
   belongs_to :user
   has_many :participations
+  has_many :comments
   geocoded_by :starting_point
   after_validation :geocode, if: :will_save_change_to_starting_point?
   validates :distance_ride, :title, :date, :starting_point, :description, :elevation, :pace_min, :pace_max, :attendees_max, presence: true
+  CITIES = ["Nantes", "Paris", "Marseille", "Lille", "Bordeaux", "Rennes"]
 
   def mapbox_path
     doc = Nokogiri::XML(gpx_file)
@@ -32,7 +34,7 @@ class Ride < ApplicationRecord
   end
 
   def city
-    results = Geocoder.search([latitude,longitude])
+    results = Geocoder.search([latitude, longitude])
     return results.first.city
   end
 end

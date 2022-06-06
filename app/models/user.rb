@@ -7,5 +7,6 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_many :participations
   has_many :rides
+  has_many :comments
   validates :first_name, :last_name, :username, presence: true
 end
