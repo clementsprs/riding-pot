@@ -1,4 +1,4 @@
-<div class="box m-3">
+<div class="box m-3 box-navbar">
   <% if @rides == [] %>
     <p>Aucune sortie trouvée... N'hésite pas à en créer une !</p>
     <%= link_to "Créer une sortie", new_host_ride_path, class:"main-button" %>
@@ -34,5 +34,4 @@
       <% end %>
       <% end %>
   <% end %>
-
 </div>
