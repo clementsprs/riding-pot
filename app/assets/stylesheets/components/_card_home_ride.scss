@@ -7,7 +7,9 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(/assets/example-map.png);
   background-size: cover;
   background-position: center;
-  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   p {
     margin: 0;
@@ -21,19 +23,17 @@
 
   .cardridebot{
     display: flex;
-    margin-top: 115px;
-    justify-content: space-around;
-
+    justify-content: space-between;
   }
 
-  .icon{
-    height: 60px;
-    width: 60px;
+  .icon {
+    height: 70px;
+    width: 70px;
 
   }
 }
 
-.container-ride-scroll{
+.container-ride-scroll {
   overflow-x: scroll;
   overflow-y: hidden;
   display: flex;

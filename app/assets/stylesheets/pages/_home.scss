@@ -20,7 +20,6 @@
 }
 
 .presentation{
-
   border-radius: 20px;
   background-color: lightgray;
   margin-top: 20px;
@@ -69,4 +68,17 @@
     a {
       text-decoration: none;
     }
+}
+
+
+.content {
+  min-height: $content-height;
+}
+
+.navbar-top {
+  min-height: $navbar-top-height;
+}
+
+.navbar-bottom {
+  min-height: $navbar-bottom-height;
 }
