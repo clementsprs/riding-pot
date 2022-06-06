@@ -1,4 +1,4 @@
-<div class="box m-3">
+<div class="box m-3 box-navbar">
   <% if @rides == [] %>
     <p>Aucune sortie trouvée... N'hésite pas à en créer une !</p>
     <%= link_to "Créer une sortie", new_host_ride_path, class:"main-button" %>
@@ -18,21 +18,20 @@
               <p><%= ride.distance_ride %> km</p>
             </div>
             <div class="icon">
-              <i class="fas fa-mountain"></i>
-              <p><%= ride.elevation %> m</p>
-            </div>
-            <div class="icon">
-              <i class="fas fa-tachometer-alt"></i>
-              <p><%= ride.pace_max %> km/h</p>
-            </div>
-            <div class="icon">
               <i class="fas fa-users"></i>
               <p><%= ride.participations.count %></p>
+            </div>
+            <div class="icon-reverse">
+              <i class="fas fa-calendar"></i>
+              <p><%= ride.date.strftime("%d-%m") %></p>
+            </div>
+            <div class="icon-reverse">
+              <i class="fas fa-clock"></i>
+              <p><%= ride.starting_time.strftime("%k:%M") %></p>
             </div>
           </div>
         </div>
       <% end %>
       <% end %>
   <% end %>
-
 </div>
