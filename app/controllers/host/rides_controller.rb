@@ -18,7 +18,6 @@ class Host::RidesController < ApplicationController
     @user = current_user
     @ride.user = @user
     @ride.gpx_file = data
-    raise
     if @ride.save
       redirect_to ride_path(@ride)
     else
