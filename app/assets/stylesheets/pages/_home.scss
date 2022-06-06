@@ -50,6 +50,9 @@
       color: $terracota;
       font-family: $icon-font;
     }
+    a {
+      text-decoration: none;
+    }
 
 }
 
@@ -62,5 +65,8 @@
       font-size: 20px;
       color: $terracota;
       font-family: $icon-font;
+    }
+    a {
+      text-decoration: none;
     }
 }
