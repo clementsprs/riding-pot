@@ -3,8 +3,9 @@
   <%# MAP %>
   <div class="mapbox">
     <div class="d-flex justify-content-between">
+      <p class="back-btn"><i class="fas fa-chevron-left"></i></p>
       <p class='city-icon'><%= @ride.city %></p>
-      <p class='geoloc-icon'> <i class="fas fa-map-marker-alt"></i> <%= @ride.elevation %> m</p>
+      <p class='geoloc-icon'> <i class="fas fa-map-marker-alt"></i> <%= Geocoder::Calculations.distance_between([44.858205, 3.294359], [@ride.latitude, @ride.longitude]).to_i%> m</p>
     </div>
     <div style="width: 100%; height: 400px;"
       data-controller="mapbox"

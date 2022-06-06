@@ -13,7 +13,7 @@ class RidesController < ApplicationController
     end
 
     if @rides == []
-      result =  Geocoder.search(params[:address]).first.coordinates
+      result = Geocoder.search(params[:address]).first.coordinates
       @markersIndex = [{
           lat: result[0],
           lng: result[1],
@@ -28,6 +28,9 @@ class RidesController < ApplicationController
         }
       end
     end
+
+    address_result = Geocoder.search(params[:address]).first.coordinates
+    @search_address = [address_result[0], address_result[1]]
   end
 
   def show
