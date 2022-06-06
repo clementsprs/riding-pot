@@ -33,6 +33,7 @@ class RidesController < ApplicationController
   def show
     @ride = Ride.find(params[:id])
     # @markers = [lat: @ride.latitude, lng: @ride.longitude]
+    @comment = Comment.new
 
     doc = Nokogiri::XML(@ride.gpx_file)
     trackpoints = doc.xpath('//xmlns:trkpt')

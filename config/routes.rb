@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  # get 'users/dashboard'
   devise_for :users
   root to: 'pages#home'
 
@@ -9,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :rides, only: [:show, :index] do
     resources :participations, only: [:create]
+    resources :comments, only: [:new, :create, :destroy, :edit, :update]
   end
 
   resources :participations, only: [:destroy]
