@@ -18,16 +18,16 @@
               <p><%= ride.distance_ride %> km</p>
             </div>
             <div class="icon">
-              <i class="fas fa-mountain"></i>
-              <p><%= ride.elevation %> m</p>
-            </div>
-            <div class="icon">
-              <i class="fas fa-tachometer-alt"></i>
-              <p><%= ride.pace_max %> km/h</p>
-            </div>
-            <div class="icon">
               <i class="fas fa-users"></i>
               <p><%= ride.participations.count %></p>
+            </div>
+            <div class="icon-reverse">
+              <i class="fas fa-calendar"></i>
+              <p><%= ride.date.strftime("%d-%m") %></p>
+            </div>
+            <div class="icon-reverse">
+              <i class="fas fa-clock"></i>
+              <p><%= ride.starting_time.strftime("%k:%M") %></p>
             </div>
           </div>
         </div>
