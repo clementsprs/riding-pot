@@ -4,7 +4,6 @@
       <%= link_to 'Précédentes', dashboard_path(choice: 'past_rides'), class: (params[:choice] == "past_rides" ? "second-button" : "third-button") %>
       <%= link_to 'A venir', dashboard_path(choice: 'upcoming_rides'), class: (params[:choice] == "upcoming_rides" ? "second-button" : "third-button") %>
     </div>
-  </div>
 
   <div class="box m-3">
     <h1><%= ride_status_text(params[:choice]) %></h1>
