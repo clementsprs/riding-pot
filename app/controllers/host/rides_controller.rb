@@ -51,7 +51,7 @@ class Host::RidesController < ApplicationController
 
   def get_routes()
     client = Strava::Api::Client.new(
-      access_token: "d1d9cda844f505ba0951bcaf1a58c52076cbec43"
+      access_token: Strava:@response.access_token
     )
     routes = client.athlete_routes(client.athlete.id) # => Array[Strava::Models::Route]
     routes_rides = routes.select do |route|

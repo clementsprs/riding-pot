@@ -9,3 +9,5 @@
     <h1><%= ride_status_text(params[:choice]) %></h1>
     <%= render 'shared/rides', rides: @rides, participations: @participations %>
 </div>
+
+<%= link_to "Connecter compte Stravia", connect_strava_oauth_path, method: :patch %>
