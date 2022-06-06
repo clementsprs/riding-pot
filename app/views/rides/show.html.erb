@@ -73,4 +73,33 @@
 
   </div>
 
+  <%# COMMENTS %>
+  <% if @ride.comments.present? %>
+    <div class="comment-cards m-3">
+      <% @ride.comments.each do |comment| %>
+      <div class="comment-card">
+        <p> <%= cl_image_tag comment.user.photo.key, class: "avatar" %> </p>
+        <div class="comment-card-info">
+          <div class="comment-card-info-general">
+            <p><%= comment.user.username %> •
+            <%= comment.updated_at.strftime("%d-%m-%Y") %> •
+            <%= comment.updated_at.strftime("%k:%M") %></p>
+          </div>
+          <p> <%= comment.content %> </p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="comment-form input-group mb-3">
+    <%= simple_form_for [@ride, @comment], html: { class: "d-flex search-bar " } do |f|  %>
+      <%= f.input :content, label: false, placeholder: "Ajouter un commentaire" %>
+
+      <button class="btn btn-comment" type="submit">
+        <i class="fas fa-comment-alt"></i>
+      </button>
+    <% end %>
+  </div>
+
 </div>

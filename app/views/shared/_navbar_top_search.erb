@@ -1,14 +1,14 @@
 <div class='navbar-top d-flex justify-content-around'>
-    <%= link_to "/", class: "img-logo-title d-flex" do %>
-      <%= image_tag "Logo - Riding Pot.png" %>
-    <% end %>
-    <%= form_tag rides_path, class: "search-form-control form-group",  method: :get do %>
-      <%= text_field_tag :address,
-        params[:address],
-        class: "form-control string required",
-        placeholder: "Adresse" %>
-      <button name="button" type="submit" class="btn btn-flat">
+  <%= link_to "/", class: "img-logo-title d-flex" do %>
+    <%= image_tag "Logo - Riding Pot.png" %>
+  <% end %>
+  <%= form_tag rides_path, class: "search-form-control form-group",  method: :get do %>
+    <%= text_field_tag :address,
+      params[:address],
+      class: "form-control string required",
+      placeholder: "Adresse" %>
+    <button name="button" type="submit" class="btn btn-flat">
       <i class="fas fa-search"></i>
     </button>
-<% end %>
+  <% end %>
 </div>

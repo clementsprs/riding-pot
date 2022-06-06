@@ -23,19 +23,14 @@
   <h2>Les sorties par villes</h2>
 
   <div class="container-city-scroll">
-    <div class="card-home-city" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%= image_url("nantes-city.jpg") %>');
-"><p class="city-icon">Nantes</p>!
-    </div>
-    <div class="card-home-city" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%= image_url("paris.jpg") %>');
-"> <p class="city-icon">Paris</p>! </div>
-<div class="card-home-city" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%= image_url("marseille.jpg") %>');
-"> <p class="city-icon">Marseille</p>! </div>
-<div class="card-home-city" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%= image_url("lille.jpg") %>');
-"> <p class="city-icon">Lille</p>! </div>
-<div class="card-home-city" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%= image_url("bordeaux.jpg") %>');
-"> <p class="city-icon">Bordeaux</p>! </div>
-<div class="card-home-city" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%= image_url("rennes.jpg") %>');
-"> <p class="city-icon">Rennes</p>! </div>
+
+    <% Ride::CITIES.each do |city| %>
+      <%= link_to rides_path(address: city) do  %>
+        <div class="card-home-city" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%= image_url("#{city.downcase}.jpg") %>')">
+          <p class="city-icon"><%= city %></p>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
 
@@ -43,112 +38,27 @@
   <h2>Les meilleures sorties</h2>
 
   <div class="container-ride-scroll">
-    <div class="card-home-ride" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%= image_url("map.jpg") %>');
-">
 
-      <div class="cardridetop">
-        <p class="city-icon">Nantes</p>!
-      </div>
-      <div class="cardridebot">
-        <div class="distance icon">
-          <i class="fas fa-route"></i>
-          <p>80 km</p>
-        </div>
-        <div class="icon">
-         <i class="fas fa-users"></i>
-         <p>10</p>
-        </div>
-      </div>
-    </div>
+    <% @rides.each do |ride| %>
+      <% url = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/path-2+f50a0a(#{ride.mapbox_path})/auto/800x800?access_token=#{ENV['MAPBOX_API_KEY']}" %>
+      <%= link_to ride_path(ride) do  %>
+        <div class="card-home-ride" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%= url %>');
+    ">
 
-    <div class="card-home-ride" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%= image_url("map2.jpg") %>');
-">
-
-      <div class="cardridetop">
-        <p class="city-icon">Paris</p>!
-      </div>
-      <div class="cardridebot">
-        <div class="distance icon">
-          <i class="fas fa-route"></i>
-          <p>50 km</p>
+          <div class="cardridetop">
+            <p class="city-icon"><%= ride.city.capitalize %></p>
+          </div>
+          <div class="cardridebot">
+            <div class="distance icon">
+              <i class="fas fa-route"></i>
+              <p><%= ride.distance_ride %> km</p>
+            </div>
+            <div class="icon">
+            <i class="fas fa-users"></i>
+            <p><%= ride.participations.count %> </p>
+            </div>
+          </div>
         </div>
-        <div class="icon">
-         <i class="fas fa-users"></i>
-         <p>2</p>
-        </div>
-      </div>
-    </div>
-
-   <div class="card-home-ride" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%= image_url("map2.jpg") %>');
-">
-
-      <div class="cardridetop">
-        <p class="city-icon">Marseille</p>!
-      </div>
-      <div class="cardridebot">
-        <div class="distance icon">
-          <i class="fas fa-route"></i>
-          <p>110 km</p>
-        </div>
-        <div class="icon">
-         <i class="fas fa-users"></i>
-         <p>9</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card-home-ride" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%= image_url("map2.jpg") %>');
-">
-
-      <div class="cardridetop">
-        <p class="city-icon">Lille</p>!
-      </div>
-      <div class="cardridebot">
-        <div class="distance icon">
-          <i class="fas fa-route"></i>
-          <p>50 km</p>
-        </div>
-        <div class="icon">
-         <i class="fas fa-users"></i>
-         <p>14</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card-home-ride" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%= image_url("map2.jpg") %>');
-">
-
-      <div class="cardridetop">
-        <p class="city-icon">Bordeaux</p>!
-      </div>
-      <div class="cardridebot">
-        <div class="distance icon">
-          <i class="fas fa-route"></i>
-          <p>80 km</p>
-        </div>
-        <div class="icon">
-         <i class="fas fa-users"></i>
-         <p>4</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card-home-ride" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%= image_url("map2.jpg") %>');
-">
-
-      <div class="cardridetop">
-        <p class="city-icon">Rennes</p>!
-      </div>
-      <div class="cardridebot">
-        <div class="distance icon">
-          <i class="fas fa-route"></i>
-          <p>140 km</p>
-        </div>
-        <div class="icon">
-         <i class="fas fa-users"></i>
-         <p>7</p>
-        </div>
-      </div>
-    </div>
-  </div>
+      <% end %>
+    <% end %>
 </div>
