@@ -2,9 +2,9 @@
   <%# MAP %>
   <div class="mapbox">
     <div class="d-flex justify-content-between">
-      <p class="back-btn"><%= link_to rides_path(address: params[:address]) do%>
-        <i class="fas fa-chevron-left"></i>
-      <% end %></p>
+      <%# <p class="back-btn"><%= link_to rides_path(address: params[:address]) do%>
+        <%# <i class="fas fa-chevron-left"></i> %>
+      <%# <% end %></p>
       <p class='city-icon'><%= @ride.city %></p>
       <p class='geoloc-icon'> <i class="fas fa-map-marker-alt"></i> <%= @ride.elevation %> m</p>
     </div>
