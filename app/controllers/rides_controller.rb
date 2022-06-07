@@ -8,6 +8,8 @@ class RidesController < ApplicationController
   def index
     if params[:address].present?
       @rides = Ride.near(params[:address], 20)
+      address_result = Geocoder.search(params[:address]).first.coordinates
+      @search_address = [address_result[0], address_result[1]]
     else
       @rides = Ride.all
     end
@@ -29,8 +31,7 @@ class RidesController < ApplicationController
       end
     end
 
-    address_result = Geocoder.search(params[:address]).first.coordinates
-    @search_address = [address_result[0], address_result[1]]
+
   end
 
   def show
