@@ -38,7 +38,7 @@ class Host::RidesController < ApplicationController
       ]
     end
     results = Geocoder.search(@markers[0].reverse)
-    @ride.starting_point = results.first.address
+    @ride.starting_point = "#{results.first.street} #{results.first.postal_code} #{results.first.city}"
     @coordinates = Array.new
     trackpoints.each do |trkpt|
       @coordinates << [
