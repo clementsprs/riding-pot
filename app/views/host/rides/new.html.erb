@@ -2,7 +2,7 @@
 <div class="box m-3">
   <div class="adding-ride-form m-2">
     <h1 class="city-icon">Ajouter une nouvelle sortie vélo</h1>
-    <% if current_user.expires_at < Time.now || current_user.expires_at == nil %>
+    <% if current_user.expires_at == nil || current_user.expires_at < Time.now  %>
     <%= link_to "Utilise tes routes Strava", connect_strava_oauth_path, method: :patch %>
     <%= render 'shared/form_strava_not_connected' %>
     <% else %>

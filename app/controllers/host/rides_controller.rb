@@ -6,23 +6,29 @@ require 'fast_polylines'
 class Host::RidesController < ApplicationController
   def new
     @ride = Ride.new
+    if current_user.access_token.present?
     @routes = get_routes()
+    end
   end
 
   def create
     @ride = Ride.new(ride_params)
-    client = Strava::Api::Client.new(
-      access_token: current_user.access_token
-    )
-    routes = client.athlete_routes(client.athlete.id) # => Array[Strava::Models::Route]
-    all_routes = routes.map do |route|
-      {id: route.id, name: route.name}
+    if current_user.access_token.present?
+      client = Strava::Api::Client.new(
+        access_token: current_user.access_token
+      )
+      routes = client.athlete_routes(client.athlete.id) # => Array[Strava::Models::Route]
+      all_routes = routes.map do |route|
+        {id: route.id, name: route.name}
+      end
+      route = all_routes.find{|route| route[:name] == @ride.route_name}[:id]
+      data = client.export_route_gpx(route) # => String
+      @ride.gpx_file = data
+    else
+      @ride.gpx_file = params[:ride][:gpx_file].read
     end
-    route = all_routes.find{|route| route[:name] == @ride.route_name}[:id]
-    data = client.export_route_gpx(route) # => String
     @user = current_user
     @ride.user = @user
-    @ride.gpx_file = data
     doc = Nokogiri::XML(@ride.gpx_file)
     trackpoints = doc.xpath('//xmlns:trkpt')
     @markers = Array.new
