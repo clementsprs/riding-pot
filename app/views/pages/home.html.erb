@@ -1,64 +1,67 @@
-
-<div class="first-spitch justify-content-center">
-  <p>Trouvez une <span> sortie vélo </span> en quelques minutes et autour de chez vous.</p>
-  <div class="d-flex justify-content-around">
-  <%= form_tag rides_path, class: "search-form-control form-group",  method: :get do %>
-      <%= text_field_tag :address,
-        params[:address],
-        class: "form-control string required",
-        placeholder: "Adresse" %>
-      <button name="button" type="submit" class="btn btn-flat">
-      <i class="fas fa-search"></i>
-    </button>
-  <% end %>
-  </div>
-</div>
-
-<div class="presentation">
-  <h4>Une plateforme unique</h4>
-  <p>Trouvez des partenaires facilement pour vos <br> prochaines sorties vélo ou proposez <br> votre propre itinéraire à la communauté</p>
-</div>
-
-<div class="scroll_city">
-  <h2>Les sorties par villes</h2>
-
-  <div class="container-city-scroll">
-
-    <% Ride::CITIES.each do |city| %>
-      <%= link_to rides_path(address: city) do  %>
-        <div class="card-home-city" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%= image_url("#{city.downcase}.jpg") %>')">
-          <p class="city-icon"><%= city %></p>
-        </div>
-      <% end %>
+<div class="content">
+  <div class="first-spitch justify-content-center">
+    <p>Trouvez une <span> sortie vélo </span> en quelques minutes et autour de chez vous.</p>
+    <div class="d-flex justify-content-around">
+    <%= form_tag rides_path, class: "search-form-control form-group",  method: :get do %>
+        <%= text_field_tag :address,
+          params[:address],
+          class: "form-control string required",
+          placeholder: "Adresse" %>
+        <button name="button" type="submit" class="btn btn-flat">
+        <i class="fas fa-search"></i>
+      </button>
     <% end %>
+    </div>
   </div>
-</div>
 
-<div class="scroll_ride">
-  <h2>Les meilleures sorties</h2>
+  <div class="presentation">
+    <h4>Une plateforme unique</h4>
+    <p>Trouvez des partenaires facilement pour vos <br> prochaines sorties vélo ou proposez <br> votre propre itinéraire à la communauté</p>
+  </div>
 
-  <div class="container-ride-scroll">
+  <div class="scroll_city">
+    <h2>Les sorties par villes</h2>
 
-    <% @rides.each do |ride| %>
-      <% url = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/path-2+f50a0a(#{ride.mapbox_path})/auto/800x800?access_token=#{ENV['MAPBOX_API_KEY']}" %>
-      <%= link_to ride_path(ride) do  %>
-        <div class="card-home-ride" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%= url %>');
-    ">
+    <div class="container-city-scroll">
 
-          <div class="cardridetop">
-            <p class="city-icon"><%= ride.city.capitalize %></p>
+      <% Ride::CITIES.each do |city| %>
+        <%= link_to rides_path(address: city) do  %>
+          <div class="card-home-city" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%= image_url("#{city.downcase}.jpg") %>')">
+            <p class="city-icon"><%= city %></p>
           </div>
-          <div class="cardridebot">
-            <div class="distance icon">
-              <i class="fas fa-route"></i>
-              <p><%= ride.distance_ride %> km</p>
-            </div>
-            <div class="icon">
-            <i class="fas fa-users"></i>
-            <p><%= ride.participations.count %> </p>
-            </div>
-          </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
+  </div>
+
+  <div class="scroll_ride">
+    <h2>Les meilleures sorties</h2>
+
+    <div class="container-ride-scroll">
+
+      <% @rides.each do |ride| %>
+        <%# <% url = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/path-2+f50a0a(#{ride.mapbox_path})/auto/800x800?access_token=#{ENV['MAPBOX_API_KEY']}" %>
+        <%= link_to ride_path(ride) do  %>
+          <div class="card-home-ride" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%= image_url("map.jpg") %>');">
+            <div class="d-flex flex-column justify-content-between flex-grow-1">
+              <div class="cardridetop">
+              <p class="city-icon"><%= ride.city.capitalize %></p>
+              </div>
+              <div class="cardridebot">
+                <div class="distance icon">
+                  <i class="fas fa-route"></i>
+                  <p><%= ride.distance_ride.ceil %> km</p>
+                </div>
+                <div class="icon">
+                <i class="fas fa-users"></i>
+                <p><%= ride.participations.count %> </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

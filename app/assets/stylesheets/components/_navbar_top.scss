@@ -1,6 +1,5 @@
 .navbar-top{
   background-color: $dark-green;
-  height: 80px;
   display: flex;
   align-items: center;
 
@@ -21,11 +20,10 @@
     }
 
   }
+}
 
-  .form-navbar{
-
-
-
-  }
-
+.navbar-top-search {
+  position: sticky;
+  top: 0;
+  box-shadow: $top-nav-box-shadow;
 }
