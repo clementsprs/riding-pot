@@ -1,0 +1,26 @@
+.card-index-map {
+  .icon-reverse {
+    background-color: $green;
+    color: $light-gray;
+    height: 75px;
+    width: 75px;
+    display: flex;
+    border-radius: 15px;
+    padding: 8px;
+    margin: 5px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: $icon-font;
+
+    i {
+      font-size: 25px;
+    }
+
+    p {
+      margin: 0;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.mapbox-map {
+  .mapboxgl-popup-anchor-top,
+  .mapboxgl-popup-anchor-bottom,
+  .mapboxgl-popup-anchor-left,
+  .mapboxgl-popup-anchor-right,
+  .mapboxgl-popup-anchor-top-left,
+  .mapboxgl-popup-anchor-top-right,
+  .mapboxgl-popup-anchor-bottom-left,
+  .mapboxgl-popup-anchor-bottom-right {
+    max-width: 100% !important;
+    bottom: 0 !important;
+    transform: unset !important;
+  }
+
+  .mapboxgl-popup {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    transform: translate(0%) !important;
+  }
+
+  .mapboxgl-popup-content {
+    text-align: center;
+    background: none !important;
+    box-shadow: none;
+  }
+
+  .mapboxgl-popup-close-button, .mapboxgl-popup-tip {
+    display: none;
+  }
+
+  .mapboxgl-map {
+    position: relative;
+  }
+
+  .card-index-map {
+    margin: 0;
+    width: 100%;
+  }
+}
