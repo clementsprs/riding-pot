@@ -6,3 +6,29 @@
   font-family: $icon-font;
   padding-bottom: 13px;
 }
+
+.strava {
+  width: 200px;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.strava_connected {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  border: 1px solid #000;
+  font-size: 12px;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 5px;
+  font-weight: bold;
+  border-radius: 10px;
+  background-color: $light-gray;
+  border-color: #fc4c02;
+  color: #fc4c02;
+  }
