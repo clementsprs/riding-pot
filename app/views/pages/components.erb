@@ -172,3 +172,32 @@ navbard-bottom
 <div class="avatar avatar-joined">
   <img src="" alt="">
 </div>
+
+
+<%# Bubble Index Map %>
+<div class="card-index-map">
+  <div class="d-flex justify-content-between">
+    <p class='city-icon'> <%= ride.city.capitalize %></p>
+    <p class='title'> <%= ride.title %> </p>
+    <p class='geoloc-icon'> <i class="fas fa-map-marker-alt"></i> <%= Geocoder::Calculations.distance_between([47.858205,2.294359], [ride.latitude,ride.longitude]).to_i%> m</p>
+  </div>
+
+  <div class="d-flex justify-content-between">
+  <div class="icon-reverse">
+      <i class="fas fa-calendar"></i>
+      <p><%= ride.date.strftime("%d-%m") %></p>
+    </div>
+    <div class="icon-reverse">
+      <i class="fas fa-clock"></i>
+      <p><%= ride.starting_time.strftime("%k:%M") %></p>
+    </div>
+    <div class="icon">
+      <i class="fas fa-route"></i>
+      <p><%= ride.distance_ride.ceil %> km</p>
+    </div>
+    <div class="icon">
+      <i class="fas fa-users"></i>
+      <p><%= ride.participations.count %></p>
+    </div>
+  </div>
+</div>

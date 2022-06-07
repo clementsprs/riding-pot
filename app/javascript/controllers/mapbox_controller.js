@@ -14,7 +14,7 @@ export default class extends Controller {
     mapboxgl.accessToken = this.apiKeyValue
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/yokosovar/cl43wtzph002u16my9i6ddddv"
+      style: "mapbox://styles/yokosovar/cl448q6xa003a14mvpmfmt70k"
     })
     if (this.pageValue === "index") {
     this.#addMarkersToIndexMap()
@@ -26,7 +26,10 @@ export default class extends Controller {
 
   #addMarkersToIndexMap() {
     this.markersIndexValue.forEach((marker) => {
+
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window)
       const customMarker = document.createElement("div")
+
       customMarker.className = "marker"
       customMarker.style.backgroundImage = `url('${marker.image_url}')`
       customMarker.style.backgroundSize = "contain"
@@ -35,6 +38,7 @@ export default class extends Controller {
 
       new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup)
         .addTo(this.map)
     });
   }

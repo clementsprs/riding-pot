@@ -1,15 +1,29 @@
-.card-index {
+.card-index-map {
+  background-color: $light-gray;
   background-size: cover;
   background-position: center;
   padding: 10px;
   border-radius: $border-radius;
-  height: 22rem;
+  // height: 22rem;
   box-shadow: $box-shadow;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin: auto;
-  width: 100%;
+  width: 90%;
+
+  .title {
+    color: $dark-green;
+    font-weight: bold;
+    font-size:large;
+    padding-top: 3px;
+    padding-left: 5px;
+  }
+
+  .geoloc-icon {
+    margin: 0;
+    padding-bottom: 0px !important;
+  }
 }
 
 .box {
