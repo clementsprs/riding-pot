@@ -47,6 +47,30 @@ ride2 = File.read('db/fixtures/ride2.txt')
 ride2 = Ride.new(title: 'Sortie vers la mer', user: user2, distance_ride: 80.9, gpx_file: ride2, description: "Deuxième édition de ma sortie préférée à Nantes en direction de la mer. Soyez à l'heure ! ", elevation: 428, pace_min: 28, pace_max: 32, attendees_max: 15, starting_point: 'place Graslin Nantes', status: 'upcoming', date: DateTime.parse("06/06/2022"), starting_time: DateTime.parse("06/06/2022 11:00"))
 ride2.save
 
+ride3 = File.read('db/fixtures/ride1.txt')
+ride3 = Ride.new(title: 'Sortie Paris nord', user: user3, distance_ride: 78, gpx_file: ride1, description: "Voici ma premiére balade que je propose à paris , attention pas plus de 10 personnes car l'on va prendre des petites routes", elevation: 219, pace_min: 5, pace_max: 20, attendees_max: 10, starting_point: '11 Rue Camille Tahan', status: 'upcoming', date: DateTime.parse("29/06/2022"), starting_time: DateTime.parse("29/06/2022 17:00"))
+ride3.save
+
+ride4 = File.read('db/fixtures/ride2.txt')
+ride4 = Ride.new(title: 'Balade autour de Rennes', user: user4, distance_ride: 101, gpx_file: ride2, description: "Pour personnes confirmées car beaucoup de kilmometres, mais super parcours ", elevation: 748, pace_min: 25, pace_max: 40, attendees_max: 20, starting_point: '45 Bd Albert 1er, 35200 Rennes', status: 'upcoming', date: DateTime.parse("17/06/2022"), starting_time: DateTime.parse("17/06/2022 18:00"))
+ride4.save
+
+ride5 = File.read('db/fixtures/ride2.txt')
+ride5 = Ride.new(title: 'Bordeaux decouverte', user: user4, distance_ride: 56, gpx_file: ride1, description: "je vous propose une petite balade , histoire de faire connaissance dans la region je ne connais personne :)", elevation: 748, pace_min: 10, pace_max: 30, attendees_max: 30, starting_point: '17 rue du Bocage, Bordaux', status: 'upcoming', date: DateTime.parse("13/06/2022"), starting_time: DateTime.parse("13/06/2022 17:00"))
+ride5.save
+
+ride6 = File.read('db/fixtures/ride2.txt')
+ride6 = Ride.new(title: 'Allons prendre le soleil à Bordeaux', user: user1, distance_ride: 48, gpx_file: ride2, description: " Il fait super beau en ce moment pourquoi pas faire une petite balade vers la mer , je suis nouveau sur Bordeaux", elevation: 748, pace_min: 10, pace_max: 30, attendees_max: 25, starting_point: '43 Rue Jean Claudeville, Bordaux', status: 'upcoming', date: DateTime.parse("12/06/2022"), starting_time: DateTime.parse("12/06/2022 14:00"))
+ride6.save
+
+ride7 = File.read('db/fixtures/ride1.txt')
+ride7 = Ride.new(title: 'A Nantes, à fond!', user: user2, distance_ride: 77, gpx_file: ride1, description: "Pour ceux qui veulent forcer un peu sur la pedale et eliminer les exces du week-end, let's go les amis, si possible niveau confirmé", elevation: 211, pace_min: 28, pace_max: 44, attendees_max: 10, starting_point: '2 boulevard albert thomas, Nantes', status: 'upcoming', date: DateTime.parse("12/06/2022"), starting_time: DateTime.parse("12/06/2022 14:00"))
+ride7.save
+
+ride8 = File.read('db/fixtures/ride1.txt')
+ride8 = Ride.new(title: "Balade le long de l'erdre", user: user4, distance_ride: 57, gpx_file: ride2, description: "Je vous propose cettte petite balade le long de l'erdre il fait beau , allons chercher le body summer :)", elevation: 769, pace_min: 20, pace_max: 35, attendees_max: 29, starting_point: 'Place du petit bois , Nantes', status: 'upcoming', date: DateTime.parse("13/06/2022"), starting_time: DateTime.parse("13/06/2022 14:00"))
+ride8.save
+
 puts "Seeding the participations"
 
 participation1 = Participation.new(user: user2, ride: ride1)
