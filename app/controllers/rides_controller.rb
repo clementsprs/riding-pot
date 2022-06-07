@@ -31,6 +31,7 @@ class RidesController < ApplicationController
           info_window: render_to_string(partial: "info_window", locals: { ride: ride })
         }
       end
+      end
     end
 
   def show

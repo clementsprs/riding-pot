@@ -1,3 +1,8 @@
+require 'rubygems'
+require 'nokogiri'
+require 'open-uri'
+require 'fast_polylines'
+
 class Ride < ApplicationRecord
   belongs_to :user
   has_many :participations
@@ -21,7 +26,7 @@ class Ride < ApplicationRecord
 
     new_coords = []
     max_val = 23
-    
+
     delta = (markers.length / max_val).to_i
     i = 0
 
