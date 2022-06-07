@@ -2,9 +2,6 @@
   <%# MAP %>
   <div class="mapbox">
     <div class="d-flex justify-content-between">
-      <%# <p class="back-btn"><%= link_to rides_path(address: params[:address]) do%>
-        <%# <i class="fas fa-chevron-left"></i> %>
-      <%# <% end %></p>
       <p class='city-icon'><%= @ride.city %></p>
       <p class='geoloc-icon'> <i class="fas fa-map-marker-alt"></i> <%= @ride.elevation %> m</p>
     </div>
@@ -38,7 +35,7 @@
     </div>
 
     <%# DATA RIDE %>
-    <div class="d-flex justify-content-between mb-3">
+    <div class="d-flex justify-content-between">
       <div class="distance icon">
         <i class="fas fa-route"></i>
         <p> <%= @ride.distance_ride %> km</p>
@@ -57,6 +54,11 @@
       </div>
     </div>
 
+    <%# DESCRIPTION %>
+    <div class="description-ride">
+      <p> <i class="fas fa-quote-left"></i> <%= @ride.description %>. <i class="fas fa-quote-right"></i> </p>
+    </div>
+
     <%# PARTICIPANTS %>
     <div class="participants mb-3">
       <p>Participants</p>
@@ -66,11 +68,6 @@
           <p> <%= cl_image_tag participation.user.photo.key, class: "avatar" %> </p>
         <% end %>
       </div>
-    </div>
-
-    <%# DESCRIPTION %>
-    <div class="description-ride">
-      <p> <%= @ride.description %> </p>
     </div>
 
   </div>
