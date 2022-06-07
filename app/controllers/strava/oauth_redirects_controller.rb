@@ -17,6 +17,6 @@ class Strava::OauthRedirectsController < ApplicationController
     current_user.expires_at = response.expires_at
     current_user.save
 
-    redirect_to dashboard_path
+    redirect_to new_host_ride_path
   end
 end
