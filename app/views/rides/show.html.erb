@@ -22,11 +22,11 @@
   <div class="show-box-info m-3">
     <div class="card-ride-info">
       <div class="date-time-icon d-flex justify-content-around">
-        <div class="date">
+        <div class="date-icon">
           <i class="fas fa-calendar"></i>
           <p> <%= @ride.date.strftime("%d-%m-%Y") %> </p>
         </div>
-        <div class="time">
+        <div class="time-icon">
           <i class="fas fa-clock"></i>
           <p> <%= @ride.starting_time.strftime("%k:%M") %> </p>
         </div>
@@ -80,7 +80,7 @@
     <div class="comment-cards m-3">
       <% @ride.comments.each do |comment| %>
       <div class="comment-card">
-        <p> <%= cl_image_tag comment.user.photo.key, class: "avatar" %> </p>
+        <p id="comment-<%= comment.id %>"> <%= cl_image_tag comment.user.photo.key, class: "avatar" %> </p>
         <div class="comment-card-info">
           <div class="comment-card-info-general">
             <p><%= comment.user.username %> •

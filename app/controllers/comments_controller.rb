@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @comment.ride = @ride
     if @comment.save
-      redirect_to ride_path(@ride)
+      redirect_to ride_path(@ride, anchor: "comment-#{@comment.id}")
     else
       render 'rides/show'
     end
