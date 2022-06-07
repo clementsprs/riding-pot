@@ -23,5 +23,12 @@
 // $border-radius-sm: 2px;
 
 // Override other variables below!
-$box-shadow: 4px 4px 10px $gray;
+$box-shadow: 4px 4px 10px lightgray;
+$nav-box-shadow: -4px 0 10px lightgray;
+$top-nav-box-shadow: 4px 0 10px lightgray;
+
 $border-radius: 15px;
+
+$navbar-bottom-height: 13vh;
+$navbar-top-height: 10vh;
+$content-height: 77vh;

@@ -14,7 +14,7 @@ export default class extends Controller {
     mapboxgl.accessToken = this.apiKeyValue
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v10"
+      style: "mapbox://styles/yokosovar/cl43wtzph002u16my9i6ddddv"
     })
     if (this.pageValue === "index") {
     this.#addMarkersToIndexMap()

@@ -1,7 +1,8 @@
 .search-form-control{
-  width: 220px;
+  width: 200px;
   position: relative;
-  margin-right: 10px;
+  // margin-right: 10px;
+  margin: auto;
 }
 
 .search-form-control .btn {
@@ -9,9 +10,4 @@
   top: 0px;
   bottom: 0px;
   right: 0px;
-}
-
-.equipment-form {
-  background-color: #14453D;
-  height: 75px;
 }

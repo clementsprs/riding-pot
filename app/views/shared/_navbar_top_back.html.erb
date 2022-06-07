@@ -1,0 +1,11 @@
+<div class='navbar-top'>
+  <div class="back-btn">
+    <%= link_to rides_path(address: params[:address]) do%>
+      <i class="fas fa-chevron-left"></i>
+    <% end %>
+  </div>
+  <%= link_to "/", class: "img-logo-title" do %>
+    <%= image_tag "Logo - Riding Pot.png" %>
+    <h1 class= "img-logo-title">Riding-Pot</h1 >
+  <% end %>
+</div>

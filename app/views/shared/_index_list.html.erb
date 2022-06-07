@@ -1,11 +1,11 @@
-<div class="box m-3">
+<div class="box m-3 content">
   <% if @rides == [] %>
     <p>Aucune sortie trouvée... N'hésite pas à en créer une !</p>
     <%= link_to "Créer une sortie", new_host_ride_path, class:"main-button" %>
   <% else %>
     <% @rides.each do |ride| %>
       <% url = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/path-2+f50a0a(#{ride.mapbox_path})/auto/800x800?access_token=#{ENV['MAPBOX_API_KEY']}" %>
-      <%= link_to ride_path(ride) do %>
+      <%= link_to ride_path(ride, address: params[:address]) do %>
         <div class="card-index mb-3" style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('<%= url %>')">
           <div class="d-flex justify-content-between">
             <p class='city-icon'><%= ride.city.capitalize %></p>
@@ -13,17 +13,17 @@
           </div>
 
           <div class="d-flex justify-content-between">
+          <div class="icon-reverse">
+              <i class="fas fa-calendar"></i>
+              <p><%= ride.date.strftime("%d-%m") %></p>
+            </div>
+            <div class="icon-reverse">
+              <i class="fas fa-clock"></i>
+              <p><%= ride.starting_time.strftime("%k:%M") %></p>
+            </div>
             <div class="icon">
               <i class="fas fa-route"></i>
-              <p><%= ride.distance_ride %> km</p>
-            </div>
-            <div class="icon">
-              <i class="fas fa-mountain"></i>
-              <p><%= ride.elevation %> m</p>
-            </div>
-            <div class="icon">
-              <i class="fas fa-tachometer-alt"></i>
-              <p><%= ride.pace_max %> km/h</p>
+              <p><%= ride.distance_ride.ceil %> km</p>
             </div>
             <div class="icon">
               <i class="fas fa-users"></i>
@@ -32,7 +32,6 @@
           </div>
         </div>
       <% end %>
-      <% end %>
+    <% end %>
   <% end %>
-
 </div>
