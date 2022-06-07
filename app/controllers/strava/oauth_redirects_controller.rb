@@ -7,8 +7,6 @@ class Strava::OauthRedirectsController < ApplicationController
 
     response = client.oauth_token(code: params[:code])
 
-    p response # => Strava::Models::Token
-
     # p response.access_token # access token
     # p response.refresh_token # refresh token
     # p response.expires_at # timestamp when the access token expires

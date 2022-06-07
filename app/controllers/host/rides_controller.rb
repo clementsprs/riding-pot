@@ -1,3 +1,8 @@
+require 'rubygems'
+require 'nokogiri'
+require 'fast_polylines'
+
+
 class Host::RidesController < ApplicationController
   def new
     @ride = Ride.new
@@ -7,7 +12,7 @@ class Host::RidesController < ApplicationController
   def create
     @ride = Ride.new(ride_params)
     client = Strava::Api::Client.new(
-      access_token: "d1d9cda844f505ba0951bcaf1a58c52076cbec43"
+      access_token: current_user.access_token
     )
     routes = client.athlete_routes(client.athlete.id) # => Array[Strava::Models::Route]
     all_routes = routes.map do |route|
@@ -18,9 +23,21 @@ class Host::RidesController < ApplicationController
     @user = current_user
     @ride.user = @user
     @ride.gpx_file = data
-    if @ride.save
+    doc = Nokogiri::XML(@ride.gpx_file)
+    trackpoints = doc.xpath('//xmlns:trkpt')
+    @markers = Array.new
+    trackpoints.each do |trkpt|
+      @markers << [
+        trkpt.xpath('@lon').to_s.to_f, trkpt.xpath('@lat').to_s.to_f
+      ]
+    end
+    results = Geocoder.search(@markers[0].reverse)
+    @ride.starting_point = results.first.address
+    @ride.elevation = get_elevation(@ride.gpx_file)
+    if @ride.save!
       redirect_to ride_path(@ride)
     else
+      @routes = get_routes()
       render :new
     end
   end
@@ -39,7 +56,6 @@ class Host::RidesController < ApplicationController
     @ride = Ride.find(params[:id])
     @ride.update(ride_params)
     redirect_to ride_path(@ride)
-
   end
 
   private
@@ -50,7 +66,7 @@ class Host::RidesController < ApplicationController
 
   def get_routes()
     client = Strava::Api::Client.new(
-      access_token: Strava:@response.access_token
+      access_token: current_user.access_token
     )
     routes = client.athlete_routes(client.athlete.id) # => Array[Strava::Models::Route]
     routes_rides = routes.select do |route|
@@ -60,4 +76,20 @@ class Host::RidesController < ApplicationController
       {id: route.id, name: route.name}
     end
   end
+
+  def get_elevation(data)
+    doc = Nokogiri::XML(data)
+    trackpoints = doc.xpath('//xmlns:trkpt')
+    @markers = Array.new
+    trackpoints.each do |trkpt|
+      @markers << trkpt.text.strip.to_f
+    end
+    @sum = 0
+    @markers.each_with_index {|elevation_point, index|
+      next_element = @markers[index + 1]
+      @sum += (next_element - elevation_point) if !next_element.nil? &&  next_element > elevation_point
+    }
+    @sum
+  end
+
 end
