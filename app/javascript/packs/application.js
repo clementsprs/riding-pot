@@ -14,3 +14,13 @@ ActiveStorage.start()
 
 import "controllers"
 import "bootstrap"
+
+document.addEventListener('turbolinks:load', (event) => {
+  if(window.location.hash){
+    const element = document.getElementById(window.location.hash.slice(1))
+
+    if(element){
+      element.scrollIntoView(true);
+    }
+  }
+})

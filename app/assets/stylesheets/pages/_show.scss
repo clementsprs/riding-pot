@@ -1,7 +1,7 @@
 // Specific CSS for your show
 .show-box {
   .description-ride {
-    background: $light-green;
+    // background: $light-green;
     padding: 1rem;
     border-radius: 15px;
     p {
@@ -33,14 +33,5 @@
       z-index: 10;
       width: 100%;
     }
-  }
-}
-
-.back-btn {
-  padding-top: 50px;
-  padding-left: 10px;
-  i {
-    color: $dark-green;
-    font-size: 40px;
   }
 }

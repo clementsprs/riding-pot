@@ -2,9 +2,6 @@
   <%# MAP %>
   <div class="mapbox">
     <div class="d-flex justify-content-between">
-      <p class="back-btn"><%= link_to rides_path(address: params[:address]) do%>
-        <i class="fas fa-chevron-left"></i>
-      <% end %></p>
       <p class='city-icon'><%= @ride.city %></p>
       <p class='geoloc-icon'> <i class="fas fa-map-marker-alt"></i> <%= Geocoder::Calculations.distance_between([44.858205, 3.294359], [@ride.latitude, @ride.longitude]).to_i%> m</p>
     </div>
@@ -24,11 +21,11 @@
   <div class="show-box-info m-3">
     <div class="card-ride-info">
       <div class="date-time-icon d-flex justify-content-around">
-        <div class="date">
+        <div class="date-icon">
           <i class="fas fa-calendar"></i>
           <p> <%= @ride.date.strftime("%d-%m-%Y") %> </p>
         </div>
-        <div class="time">
+        <div class="time-icon">
           <i class="fas fa-clock"></i>
           <p> <%= @ride.starting_time.strftime("%k:%M") %> </p>
         </div>
@@ -40,7 +37,7 @@
     </div>
 
     <%# DATA RIDE %>
-    <div class="d-flex justify-content-between mb-3">
+    <div class="d-flex justify-content-between">
       <div class="distance icon">
         <i class="fas fa-route"></i>
         <p> <%= @ride.distance_ride %> km</p>
@@ -59,6 +56,11 @@
       </div>
     </div>
 
+    <%# DESCRIPTION %>
+    <div class="description-ride">
+      <p> <i class="fas fa-quote-left"></i> <%= @ride.description %>. <i class="fas fa-quote-right"></i> </p>
+    </div>
+
     <%# PARTICIPANTS %>
     <div class="participants mb-3">
       <p>Participants</p>
@@ -70,11 +72,6 @@
       </div>
     </div>
 
-    <%# DESCRIPTION %>
-    <div class="description-ride">
-      <p> <%= @ride.description %> </p>
-    </div>
-
   </div>
 
   <%# COMMENTS %>
@@ -82,7 +79,7 @@
     <div class="comment-cards m-3">
       <% @ride.comments.each do |comment| %>
       <div class="comment-card">
-        <p> <%= cl_image_tag comment.user.photo.key, class: "avatar" %> </p>
+        <p id="comment-<%= comment.id %>"> <%= cl_image_tag comment.user.photo.key, class: "avatar" %> </p>
         <div class="comment-card-info">
           <div class="comment-card-info-general">
             <p><%= comment.user.username %> •

@@ -1,29 +1,38 @@
-.navbar-top{
+.navbar-top {
   background-color: $dark-green;
   display: flex;
   align-items: center;
+  position: relative;
 
-  .img-logo-title{
+  .img-logo-title {
     text-decoration: none;
-    margin-left: 20px;
+    display: flex;
+    margin: auto;
 
     img {
       width: 80px;
       height: 80px;
+      position: absolute;
+      top: 0;
+      bottom: O;
+      left: 55px;
     }
 
     h1 {
-      margin-bottom: 0;
-      margin-top: 22px;
       font-family: $icon-font;
       color: $light-gray;
+      margin: auto;
+      margin-right: -15px;
     }
-
   }
 }
 
-.navbar-top-search {
-  position: sticky;
-  top: 0;
-  box-shadow: $top-nav-box-shadow;
+.back-btn {
+  padding-top: 10px;
+  padding-left: 20px;
+  position: absolute;
+  i {
+    color: $light-gray;
+    font-size: 25px;
+  }
 }

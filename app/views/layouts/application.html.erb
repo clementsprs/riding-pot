@@ -17,12 +17,14 @@
 
     <% if params[:action] == "index" %>
       <%= render "shared/navbar_top_search" %>
+    <% elsif params[:action] == "show" %>
+      <%= render "shared/navbar_top_back" %>
     <% else %>
       <%= render "shared/navbar_top" %>
     <% end %>
 
     <%= yield %>
-    
+
     <%= render 'shared/navbar_bottom' %>
 
   </body>
