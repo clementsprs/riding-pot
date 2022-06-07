@@ -17,3 +17,19 @@
     text-decoration: none;
   }
 }
+
+.mapboxgl-ctrl-logo {
+  display: none !important;
+}
+
+.mapboxgl-ctrl-attrib-inner {
+  display: none !important;
+}
+
+.back-btn {
+  padding-top: 5px;
+  i {
+  font-size: 25px;
+  color: $terracota;
+  }
+}

@@ -28,6 +28,9 @@ class RidesController < ApplicationController
         }
       end
     end
+
+    address_result = Geocoder.search(params[:address]).first.coordinates
+    @search_address = [address_result[0], address_result[1]]
   end
 
   def show
