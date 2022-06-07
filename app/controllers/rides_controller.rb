@@ -27,6 +27,7 @@ class RidesController < ApplicationController
           lat: ride.latitude,
           lng: ride.longitude,
           image_url: helpers.asset_url("Map Marker - Riding Pot.png"),
+          image_url_selected: helpers.asset_url("Map Marker Selected - Riding Pot.png"),
           info_window: render_to_string(partial: "info_window", locals: { ride: ride })
         }
       end

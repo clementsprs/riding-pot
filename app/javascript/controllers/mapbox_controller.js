@@ -16,12 +16,12 @@ export default class extends Controller {
       container: this.element,
       style: "mapbox://styles/yokosovar/cl448q6xa003a14mvpmfmt70k"
     })
-    if (this.pageValue === "index") {
-    this.#addMarkersToIndexMap()
-    this.#fitMapToIndexMarkers()
+    if (this.pageValue == "index") {
+      this.#addMarkersToIndexMap()
+      this.#fitMapToIndexMarkers()
     } else {
-    this.#displayJourneyReshaped(this.map, this.markersValue)
-    this.#fitMapToJourney()}
+      this.#displayJourneyReshaped(this.map, this.markersValue)
+      this.#fitMapToJourney()}
   }
 
   #addMarkersToIndexMap() {
