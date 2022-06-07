@@ -33,8 +33,6 @@ class RidesController < ApplicationController
       end
     end
 
-  end
-
   def show
     @ride = Ride.find(params[:id])
     # @markers = [lat: @ride.latitude, lng: @ride.longitude]

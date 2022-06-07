@@ -1,14 +1,17 @@
-<div class='navbar-top'>
+<div class='navbar-top navbar-search'>
   <%= link_to "/", class: "img-logo-title" do %>
     <%= image_tag "Logo - Riding Pot.png" %>
   <% end %>
-  <%= form_tag rides_path, class: "search-form-control",  method: :get do %>
+  <%= form_tag rides_path, autocomplete: "on", class: "search-form-control",  method: :get do %>
+    <div class="d-flex flex-row-reverse" data-controller="geocoder" data-geocoder-placeholder-value="Chercher" data-geocoder-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       <%= text_field_tag :address,
         params[:address],
-        class: "form-control string required",
-        placeholder: "Adresse" %>
-      <button name="button" type="submit" class="btn btn-flat">
-        <i class="fas fa-search"></i>
+        class: "form-control d-none",
+        placeholder: "Adresse",
+        data: { geocoder_target: "address"  } %>
+      <button name="button" type="submit" class="btn btn-flat btn-search">
+        <i class="fas fa-search fa-lg"></i>
       </button>
-    <% end %>
+    </div>
+  <% end %>
 </div>

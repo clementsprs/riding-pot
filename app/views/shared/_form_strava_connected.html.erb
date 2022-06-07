@@ -2,10 +2,10 @@
       <div class="row">
         <div class="col-12"><%= f.input :title, label: false, placeholder: "Titre de ta sortie"%></div>
         <div class="col-12"><%= f.input :description, label: false, placeholder: "Ajoute quelques lignes à propos de ta sortie"%></div>
-        <div class="col-12"><%= f.input :route_name, collection: @routes.map {|route| route[:name]}, label: false, placeholder: "Sélectionne ta route Strava" %></div>
+        <div class="col-12"><%= f.input :route_name, collection: @routes.map {|route| route[:name]}, label: false, prompt: "Sélectionner une route Strava" %></div>
         <div class="col-6"><%= f.input :pace_min, label: false, placeholder: "Rythme min"%></div>
         <div class="col-6"><%= f.input :pace_max, label: false, placeholder: "Rythme max"%></div>
-        <div class="col-6"><%= f.input :attendees_max, label: false, placeholder: "Max participants"%></div>
+        <div class="col-6"><%= f.input :attendees_max, label: false, placeholder: "Participants"%></div>
         <div class="col-6"><%= f.input :date, html5: true, label: false %></div>
         <div class="col-6"><%= f.input :starting_time, as: :time, label: false, min: 'hh:mm:ss',max: 'hh:mm:ss' %></div>
         <%= f.submit "Ajouter", class: "main-button" %>
