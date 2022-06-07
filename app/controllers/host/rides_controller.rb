@@ -33,6 +33,13 @@ class Host::RidesController < ApplicationController
     end
     results = Geocoder.search(@markers[0].reverse)
     @ride.starting_point = results.first.address
+    @coordinates = Array.new
+    trackpoints.each do |trkpt|
+      @coordinates << [
+        trkpt.xpath('@lat').to_s.to_f, trkpt.xpath('@lon').to_s.to_f
+      ]
+    end
+    @ride.distance_ride = get_distance(@coordinates)
     @ride.elevation = get_elevation(@ride.gpx_file)
     if @ride.save!
       redirect_to ride_path(@ride)
@@ -92,4 +99,12 @@ class Host::RidesController < ApplicationController
     @sum
   end
 
+  def get_distance(markers)
+    @sum = 0
+    markers.each_with_index {|coordinate, index|
+      next_element = markers[index + 1]
+      @sum += Geocoder::Calculations.distance_between(coordinate, next_element) unless next_element.nil?
+    }
+    @sum.to_i
+  end
 end
