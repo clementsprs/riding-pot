@@ -11,3 +11,5 @@
     <%= render 'shared/rides', rides: @rides, participations: @participations %>
   </div>
 </div>
+
+<%= link_to "Connecter compte Stravia", connect_strava_oauth_path, method: :patch %>

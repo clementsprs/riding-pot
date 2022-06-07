@@ -33,7 +33,9 @@ gem "geocoder"
 
 gem "fast-polylines", "~> 2.0.0"
 
+gem 'strava-ruby-client'
 
+gem 'omniauth-strava-oauth2', '~> 0.0.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

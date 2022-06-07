@@ -11,6 +11,20 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create, :destroy, :edit, :update]
   end
 
+  namespace :strava do
+    resource :oauth, only: [] do
+      collection do
+        patch :connect
+      end
+    end
+
+    resource :oauth_redirect, only: [] do
+      collection do
+        get :complete_connection
+      end
+    end
+  end
+
   resources :participations, only: [:destroy]
 
   get "/dashboard", to: "users#dashboard"
