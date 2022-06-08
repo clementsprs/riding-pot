@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 module RidingPot
   class Application < Rails::Application
+    config.load_defaults 6.0 # I'm using Rails 6 at the time of this article
+    config.exceptions_app = self.routes # Add this line
     config.generators do |generate|
       generate.assets false
       generate.helper false
