@@ -1,8 +1,8 @@
 class Strava::OauthsController < ApplicationController
   def connect
     client = Strava::OAuth::Client.new(
-      client_id: "84276",
-      client_secret: "e4b52efc844481d78c6292b02b8181bf49e96586"
+      client_id: ENV['STRAVA_CLIENT_ID'],
+      client_secret: ENV['STRAVA_CLIENT_SECRET']
     )
 
     redirect_url = client.authorize_url(
