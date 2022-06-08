@@ -47,6 +47,7 @@ class Host::RidesController < ApplicationController
     end
     @ride.distance_ride = get_distance(@coordinates)
     @ride.elevation = get_elevation(@ride.gpx_file)
+    @ride.status = "upcoming"
     if @ride.save!
       redirect_to ride_path(@ride)
     else
