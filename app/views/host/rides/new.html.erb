@@ -2,7 +2,7 @@
 
   <div class="adding-ride-form m-2">
 
-    <h2>Ajouter une nouvelle sortie vélo</h2>
+    <h1>Ajouter une nouvelle sortie</h1>
     <% if current_user.expires_at == nil || current_user.expires_at < Time.now  %>
     <%= link_to connect_strava_oauth_path, method: :patch  do %>
     <%= image_tag "strava.jpg", class: "strava" %>
