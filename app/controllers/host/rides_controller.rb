@@ -6,7 +6,7 @@ require 'fast_polylines'
 class Host::RidesController < ApplicationController
   def new
     @ride = Ride.new
-    if current_user.access_token.present?
+    if current_user.access_token.present? && current_user.expires_at > Time.now
     @routes = get_routes()
     end
   end
