@@ -5,11 +5,12 @@
       <%= link_to 'A venir', dashboard_path(choice: 'upcoming_rides'), class: (params[:choice] == "upcoming_rides" ? "second-button" : "third-button") %>
     </div>
   </div>
-  
+
   <div class="box m-3">
     <h1><%= ride_status_text(params[:choice]) %></h1>
     <%= render 'shared/rides', rides: @rides, participations: @participations %>
   </div>
+  <div class="log-btn">
+    <%= link_to "Deconnexion", destroy_user_session_path, method: :delete, class: "main-button" %>
+  </div>
 </div>
-
-<%= link_to "Connecter compte Stravia", connect_strava_oauth_path, method: :patch %>

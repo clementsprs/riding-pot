@@ -1,0 +1,27 @@
+.log-btn {
+  .main-button {
+    width: 70%;
+    margin-top: 3rem;
+    margin-bottom: 3rem;;
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+.sessions {
+  h2 {
+  margin-left: 5px;
+  font-size: 20px;
+  color: $terracota;
+  font-family: $icon-font;
+  margin-bottom: 2rem;
+  }
+}
+
+.not-important-btn {
+  color: $gray;
+  a {
+    text-decoration: none;
+  }
+}

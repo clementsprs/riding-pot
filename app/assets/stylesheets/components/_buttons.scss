@@ -10,6 +10,7 @@
   border-radius: 15px;
   width: 80vw;
   border: none;
+  font-family: 'Comfortaa', cursive;
 }
 
 .second-button {
@@ -42,4 +43,7 @@
   font-family: 'Comfortaa', cursive;
   border: none;
   text-decoration: none;
+  a {
+    text-decoration: none;
+  }
 }
