@@ -1,5 +1,5 @@
 <div class="box m-3 content">
-  <% if @rides == [] %>
+  <% if @rides.empty? %>
     <p>Aucune sortie trouvée... N'hésite pas à en créer une !</p>
     <%= link_to "Créer une sortie", new_host_ride_path, class:"main-button" %>
   <% else %>

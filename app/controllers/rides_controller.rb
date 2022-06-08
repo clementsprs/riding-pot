@@ -6,12 +6,13 @@ require 'fast_polylines'
 class RidesController < ApplicationController
 
   def index
+    # update_rides_status
     if params[:address].present?
-      @rides = Ride.near(params[:address], 20)
+      @rides = Ride.near(params[:address], 20).where(status: "upcoming")
       address_result = Geocoder.search(params[:address]).first.coordinates
       @search_address = [address_result[0], address_result[1]]
     else
-      @rides = Ride.all
+      @rides = Ride.where(status: "upcoming")
     end
 
     if @rides == []
@@ -21,8 +22,8 @@ class RidesController < ApplicationController
           lng: result[1],
           image_url: helpers.asset_url("Map Marker - Riding Pot.png")
           }]
-        else
-          @markersIndex = @rides.geocoded.map do |ride|
+    else
+      @markersIndex = @rides.geocoded.map do |ride|
             {
           lat: ride.latitude,
           lng: ride.longitude,
@@ -31,8 +32,8 @@ class RidesController < ApplicationController
           info_window: render_to_string(partial: "info_window", locals: { ride: ride })
         }
       end
-      end
     end
+  end
 
   def show
     @ride = Ride.find(params[:id])
@@ -53,4 +54,23 @@ class RidesController < ApplicationController
     end
   end
 
+  private
+
+  def update_rides_status
+    Ride.all.each do |ride|
+      date_with_time = DateTime.new(
+                          ride.date.year,
+                          ride.date.month,
+                          ride.date.day,
+                          ride.starting_time.hour - 2,
+                          ride.starting_time.min
+                        )
+      if date_with_time < DateTime.current
+        ride.status = "done"
+      else
+        ride.status = "upcoming"
+      end
+      ride.save
+    end
+  end
 end

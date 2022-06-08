@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require "open-uri"
+require "date"
+require 'time'
 
 puts "Cleaning the database..."
 
@@ -46,15 +48,18 @@ ride_4 = File.read('db/fixtures/ride4.txt') #Bordeaux
 ride_5 = File.read('db/fixtures/ride5.txt') #Bordeaux
 
 
-
-
-ride1 = Ride.new(title: 'Sortie Nantes Sud', user: user1, distance_ride: 60.5, gpx_file: ride_1, description: "Je propose une petite sortie dans le sud de Nantes. J'ai dejà fait cet itinéraire et c'est très agréable", elevation: 419, pace_min: 25, pace_max: 28, attendees_max: 30, starting_point: '19 rue de Friedland 44000 Nantes', status: 'done', date: DateTime.parse("03/06/2022"), starting_time: DateTime.parse("03/06/2022 17:00"))
+ride1 = Ride.new(title: 'Sortie Nantes Sud', user: user1, distance_ride: 60.5, gpx_file: ride_1, description: "Je propose une petite sortie dans le sud de Nantes. J'ai dejà fait cet itinéraire et c'est très agréable", elevation: 419, pace_min: 25, pace_max: 28, attendees_max: 30, starting_point: '19 rue de Friedland 44000 Nantes', status: 'done', date: DateTime.new(2022,06,03))
+# puts "#{Time.new("2022", "06", "03", "10", "00", "00")}"
+# TimeWithZone
+ride1.starting_time = DateTime.new(2022, 06, 03, 10, 00, 00)
+puts ride1.starting_time
 ride1.save
+puts ride1.starting_time
 
-ride2 = Ride.new(title: 'Sortie vers la mer', user: user2, distance_ride: 80.9, gpx_file: ride_2, description: "Deuxième édition de ma sortie préférée à Nantes en direction de la mer. Soyez à l'heure ! ", elevation: 428, pace_min: 28, pace_max: 32, attendees_max: 15, starting_point: 'place Graslin Nantes 44000 Nantes', status: 'upcoming', date: DateTime.parse("06/06/2022"), starting_time: DateTime.parse("06/06/2022 11:00"))
+ride2 = Ride.new(title: 'Sortie vers la mer', user: user2, distance_ride: 80.9, gpx_file: ride_2, description: "Deuxième édition de ma sortie préférée à Nantes en direction de la mer. Soyez à l'heure ! ", elevation: 428, pace_min: 28, pace_max: 32, attendees_max: 15, starting_point: 'place Graslin Nantes 44000 Nantes', status: 'upcoming', date: DateTime.new(2022,06,10), starting_time: DateTime.new(2022, 06, 10, 15, 00, 00))
 ride2.save
 
-ride3 = Ride.new(title: 'Balade autour de Rennes', user: user3, distance_ride: 101, gpx_file: ride_3, description: "Pour personnes confirmées car beaucoup de kilmometres, mais super parcours ", elevation: 629, pace_min: 25, pace_max: 40, attendees_max: 20, starting_point: '45 Bd Albert 1er 35200 Rennes', status: 'upcoming', date: DateTime.parse("17/06/2022"), starting_time: DateTime.parse("17/06/2022 18:00"))
+ride3 = Ride.new(title: 'Balade autour de Rennes', user: user3, distance_ride: 101, gpx_file: ride_3, description: "Pour personnes confirmées car beaucoup de kilmometres, mais super parcours ", elevation: 629, pace_min: 25, pace_max: 40, attendees_max: 20, starting_point: '45 Bd Albert 1er 35200 Rennes', status: 'upcoming', date: DateTime.new(2022,06,17), starting_time: DateTime.new(2022, 06, 17, 14, 00, 00))
 ride3.save
 
 
