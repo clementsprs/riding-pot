@@ -42,13 +42,12 @@ class Ride < ApplicationRecord
     return results.first.city
   end
 
-  def status!
-    raise
-    date_with_time = DateTime.new(date.year, date.month, date.day, starting_time.hour - 2, starting_time.min)
-    if date_with_time < DateTime.current
-      status = "done"
-    else
-      status = "upcoming"
-    end
-  end
+  # def status!
+  #   date_with_time = DateTime.new(date.year, date.month, date.day, starting_time.hour - 2, starting_time.min)
+  #   if date_with_time < DateTime.current
+  #     status = "done"
+  #   else
+  #     status = "upcoming"
+  #   end
+  # end
 end
