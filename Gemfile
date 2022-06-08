@@ -31,7 +31,7 @@ gem 'cloudinary', '~> 1.16.0'
 
 gem "geocoder"
 
-gem "fast-polylines", "~> 2.0.0"
+gem "fast-polylines", "~> 2.0.1"
 
 gem 'strava-ruby-client'
 

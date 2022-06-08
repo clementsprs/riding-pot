@@ -20,22 +20,22 @@ class Ride < ApplicationRecord
 
     trackpoints.each do |trkpt|
       markers << [
-        trkpt.xpath('@lon').to_s.to_f, trkpt.xpath('@lat').to_s.to_f
+        trkpt.xpath('@lon').to_s.to_f.truncate(5), trkpt.xpath('@lat').to_s.to_f.truncate(5)
       ]
     end
 
     new_coords = []
-    max_val = 23
+    max_val = 97
 
-    delta = (markers.length / max_val).to_i
+    delta = (markers.length / max_val)
     i = 0
-
-    while i <= markers.length
+    while new_coords.length < max_val
       new_coords.push(markers[i].reverse)
       i += delta
     end
-    FastPolylines.encode(new_coords)
+    result = FastPolylines.encode(new_coords).to_query("")[1..-1]
   end
+
 
   def city
     results = Geocoder.search([latitude, longitude])
