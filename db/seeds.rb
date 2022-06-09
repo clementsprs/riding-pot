@@ -324,8 +324,6 @@ participation63 = Participation.new(user: user7, ride: ride6)
 participation63.save
 participation64 = Participation.new(user: user8, ride: ride6)
 participation64.save
-participation65 = Participation.new(user: user9, ride: ride6)
-participation65.save
 
 # Ride 7
 
