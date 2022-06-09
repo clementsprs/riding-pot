@@ -1,0 +1,5 @@
+meta_product_name: "Riding Pot"
+meta_title: "Riding Pot - Sorties à vélo collaboratives"
+meta_description: "Trouvez une sortie vélo en quelques minutes et autour de chez vous"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards

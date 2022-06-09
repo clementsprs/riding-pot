@@ -2,17 +2,19 @@
   background-color: $dark-green;
   display: flex;
   align-items: center;
-  position: relative;
+  // position: relative;
 
   .img-logo-title {
     text-decoration: none;
     display: flex;
     margin: auto;
+    justify-content: space-between;
+    align-items: center;
 
     img {
       width: 80px;
       height: 80px;
-      position: absolute;
+      // position: absolute;
       top: 0;
       bottom: O;
       left: 55px;
@@ -22,7 +24,6 @@
       font-family: $icon-font;
       color: $light-gray;
       margin: auto;
-      margin-right: -15px;
     }
   }
 }
