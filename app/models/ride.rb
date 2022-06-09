@@ -12,10 +12,14 @@ class Ride < ApplicationRecord
   validates :distance_ride, :title, :date, :starting_point, :description, :elevation, :pace_min, :pace_max, :attendees_max, presence: true
   CITIES = ["Nantes", "Paris", "Marseille", "Lille", "Bordeaux", "Rennes"]
 
+  after_create :mapbox_path
+  after_create_commit :set_city
+
+  private
+
   def mapbox_path
     doc = Nokogiri::XML(gpx_file)
     trackpoints = doc.xpath('//xmlns:trkpt')
-
     markers = Array.new
 
     trackpoints.each do |trkpt|
@@ -34,21 +38,13 @@ class Ride < ApplicationRecord
       i += delta
     end
     result = FastPolylines.encode(new_coords).to_query("")[1..-1]
+    url = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/path-2+f50a0a(#{result})/auto/800x800?access_token=#{ENV['MAPBOX_API_KEY']}"
+    puts url
+    update!(map_url: url)
   end
 
-
-  def city
+  def set_city
     results = Geocoder.search([latitude, longitude])
-    return results.first.city
+    update!(city: results.first.city)
   end
-
-
-  # def status!
-  #   date_with_time = DateTime.new(date.year, date.month, date.day, starting_time.hour - 2, starting_time.min)
-  #   if date_with_time < DateTime.current
-  #     status = "done"
-  #   else
-  #     status = "upcoming"
-  #   end
-  # end
 end
