@@ -46,9 +46,9 @@
     <div class="container-ride-scroll">
 
       <% @rides.each do |ride| %>
-        <% url = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/path-2+f50a0a(#{ride.mapbox_path})/auto/800x800?access_token=#{ENV['MAPBOX_API_KEY']}" %>
+        <% puts "Rendering ride card" %>
         <%= link_to ride_path(ride) do  %>
-          <div class="card-home-ride" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%= url %>');">
+          <div class="card-home-ride" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%= ride.map_url %>');">
             <div class="d-flex flex-column justify-content-between flex-grow-1">
               <div class="cardridetop">
               <p class="city-icon"><%= ride.city.capitalize %></p>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="icon">
                 <i class="fas fa-users"></i>
-                <p><%= ride.participations.count + 1%> </p>
+                <p><%= ride.participants%> </p>
                 </div>
               </div>
             </div>

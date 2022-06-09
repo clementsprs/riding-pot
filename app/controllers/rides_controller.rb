@@ -8,14 +8,14 @@ class RidesController < ApplicationController
   def index
     # update_rides_status
     if params[:address].present?
-      @rides = Ride.near(params[:address], 20).where(status: "upcoming")
+      @rides = Ride.includes(:participations).near(params[:address], 20).where(status: "upcoming")
       address_result = Geocoder.search(params[:address]).first.coordinates
       @search_address = [address_result[0], address_result[1]]
     else
-      @rides = Ride.where(status: "upcoming")
+      @rides = Ride.includes(:participations).where(status: "upcoming")
     end
 
-    if @rides == []
+    if @rides.blank?
       result = Geocoder.search(params[:address]).first.coordinates
       @markersIndex = [{
           lat: result[0],
