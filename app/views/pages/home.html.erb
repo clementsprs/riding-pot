@@ -1,19 +1,22 @@
 <div class="content">
   <div class="first-spitch justify-content-center">
     <p>Trouvez une <span> sortie vélo </span> en quelques minutes et autour de chez vous.</p>
-    <div class="d-flex justify-content-around">
-    <%= form_tag rides_path, autocomplete: "on", class: "search-form-control-hp",  method: :get do %>
-      <div class="d-flex flex-row-reverse" data-controller="geocoder" data-geocoder-placeholder-value="Chercher" data-geocoder-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-        <%= text_field_tag :address,
-          params[:address],
-          class: "form-control d-none",
-          placeholder: "Adresse",
-          data: { geocoder_target: "address"  } %>
-        <button name="button" type="submit" class="btn btn-flat btn-search">
-          <i class="fas fa-search fa-lg"></i>
-        </button>
-      </div>
-    <% end %>
+    <div class="d-flex justify-content-around constraint">
+
+    <div class="width-form-home">
+      <%= form_tag rides_path, autocomplete: "on", class: "search-form-control-hp",  method: :get do %>
+        <div class="d-flex flex-row-reverse" data-controller="geocoder" data-geocoder-placeholder-value="Chercher" data-geocoder-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" >
+          <%= text_field_tag :address,
+            params[:address],
+            class: "form-control d-none",
+            placeholder: "Adresse",
+            data: { geocoder_target: "address"  } %>
+          <button name="button" type="submit" class="btn btn-flat btn-search">
+            <i class="fas fa-search fa-lg"></i>
+          </button>
+        </div>
+      <% end %>
+    </div>
     </div>
   </div>
 

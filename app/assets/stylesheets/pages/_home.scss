@@ -55,6 +55,10 @@
 
 }
 
+.turbolinks-progress-bar{
+  display: none;
+}
+
 .scroll_ride{
 
   margin-top: 20px;
@@ -83,7 +87,13 @@
   min-height: $navbar-bottom-height;
 }
 
+
 .search-form-control-hp {
+  // margin-left: 215px;
+  // margin-right: auto;
+  // width: 80px;
+
+
   .btn.btn-search {
     background-color: white;
     border-radius: 0 4px 4px 0;
@@ -110,4 +120,3 @@
   }
 
 }
-
