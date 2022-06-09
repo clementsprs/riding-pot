@@ -1,13 +1,12 @@
-<div class="index-rides" data-controller="edit-index">
+<div class="index-rides">
   <div class="d-flex justify-content-between my-2">
-    <button class="second-button" data-action="click->edit-index#displayIndex" data-edit-index-target="lbtn">Itinéraires</button>
-    <button class="third-button" data-action="click->edit-index#displayMap" data-edit-index-target="mbtn">Carte</button>
+    <%= link_to 'Itinéraires', rides_path(choice: "index_list"), class: (params[:choice] == "index_list" || params[:choice].nil? ? "second-button" : "third-button") %>
+    <%= link_to 'Carte', rides_path(choice: 'index_map'), class: (params[:choice] == "index_map" ? "second-button" : "third-button") %>
   </div>
 
-  <div data-edit-index-target="list">
+  <% if params[:choice] == 'index_list' || params[:choice].nil? %>
     <%= render "shared/index_list" %>
-  </div>
-  <div data-edit-index-target="map" class="d-none">
+  <% elsif params[:choice] == 'index_map' %>
     <%= render "shared/index_map" %>
-  </div>
+  <% end %>
 </div>
