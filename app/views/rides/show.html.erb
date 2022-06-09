@@ -43,15 +43,15 @@
     <div class="d-flex justify-content-between">
       <div class="distance icon">
         <i class="fas fa-route"></i>
-        <p> <%= @ride.distance_ride %> km</p>
+        <p> <%= @ride.distance_ride.to_i %><span class="abv"> km </span></p>
       </div>
       <div class="icon">
         <i class="fas fa-mountain"></i>
-        <p> <%= @ride.elevation %> m</p>
+        <p> <%= @ride.elevation %><span class="abv"> m </span></p>
       </div>
       <div class="icon">
         <i class="fas fa-tachometer-alt"></i>
-        <p> <%= @ride.pace_max %> km/h</p>
+        <p> <%= @ride.pace_max %> <span class="abv">km/h</span> </p>
       </div>
       <div class="icon">
         <i class="fas fa-users"></i>
@@ -75,34 +75,32 @@
       </div>
     </div>
 
-  </div>
-
-  <%# COMMENTS %>
-  <% if @ride.comments.present? %>
-    <div class="comment-cards m-3">
-      <% @ride.comments.each do |comment| %>
-      <div class="comment-card">
-        <p id="comment-<%= comment.id %>"> <%= cl_image_tag comment.user.photo.key, class: "avatar" %> </p>
-        <div class="comment-card-info">
-          <div class="comment-card-info-general">
-            <p><%= comment.user.username %> •
-            <%= comment.updated_at.strftime("%d-%m-%Y") %> •
-            <%= (comment.updated_at.to_datetime + 2.hours).strftime("%k:%M") %></p>
+      <% if @ride.comments.present? %>
+        <div class="comment-cards m-3">
+          <% @ride.comments.each do |comment| %>
+          <div class="comment-card">
+            <p id="comment-<%= comment.id %>"> <%= cl_image_tag comment.user.photo.key, class: "avatar" %> </p>
+            <div class="comment-card-info">
+              <div class="comment-card-info-general">
+                <p><%= comment.user.username %> •
+                <%= comment.updated_at.strftime("%d-%m-%Y") %> •
+                <%= (comment.updated_at.to_datetime + 2.hours).strftime("%k:%M") %></p>
+              </div>
+              <p> <%= comment.content %> </p>
+            </div>
           </div>
-          <p> <%= comment.content %> </p>
+          <% end %>
         </div>
-      </div>
       <% end %>
+
+      <div class="comment-form input-group">
+        <%= simple_form_for [@ride, @comment], html: { class: "d-flex search-bar mb-3" } do |f|  %>
+          <%= f.input :content, label: false, placeholder: "Ajouter un commentaire" %>
+
+          <button class="btn btn-comment" type="submit">
+            <i class="fas fa-comment-alt"></i>
+          </button>
+        <% end %>
     </div>
-  <% end %>
-
-  <div class="comment-form input-group">
-    <%= simple_form_for [@ride, @comment], html: { class: "d-flex search-bar mb-3" } do |f|  %>
-      <%= f.input :content, label: false, placeholder: "Ajouter un commentaire" %>
-
-      <button class="btn btn-comment" type="submit">
-        <i class="fas fa-comment-alt"></i>
-      </button>
-    <% end %>
   </div>
 </div>
