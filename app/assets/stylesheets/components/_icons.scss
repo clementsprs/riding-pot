@@ -37,7 +37,11 @@
   font-family: $icon-font;
 
   i {
-    font-size: 25px;
+    font-size: 22px;
+  }
+
+  .abv {
+    font-size: 10px;
   }
 
   p {
@@ -45,6 +49,8 @@
     font-weight: bold;
     font-size: 1rem;
   }
+
+
 }
 
 .date-icon {
