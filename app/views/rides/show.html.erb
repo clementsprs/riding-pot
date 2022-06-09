@@ -69,8 +69,10 @@
       <p>Participants</p>
       <div class="participants-avatar">
         <p> <%= cl_image_tag @ride.user.photo.key, class: "avatar avatar-host" %> </p>
-        <% @ride.participations.each do |participation| %>
-          <p> <%= cl_image_tag participation.user.photo.key, class: "avatar" %> </p>
+        <% if @ride.participations.present? %>
+          <% @ride.participations.each do |participation| %>
+            <p> <%= cl_image_tag participation.user.photo.key, class: "avatar" %> </p>
+          <% end %>
         <% end %>
       </div>
     </div>

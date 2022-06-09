@@ -277,68 +277,68 @@ puts "Seeding the participations"
 
 # Ride 1
 participation11 = Participation.new(user: user2, ride: ride1)
-participation11.save
+participation11.save!
 participation12 = Participation.new(user: user3, ride: ride1)
-participation12.save
+participation12.save!
 participation13 = Participation.new(user: user4, ride: ride1)
-participation13.save
+participation13.save!
 
 # Ride 2
 participation21 = Participation.new(user: user4, ride: ride2)
-participation21.save
+participation21.save!
 participation22 = Participation.new(user: user6, ride: ride2)
-participation22.save
+participation22.save!
 participation23 = Participation.new(user: user8, ride: ride2)
-participation23.save
+participation23.save!
 
 # Ride 3
 participation31 = Participation.new(user: user5, ride: ride3)
-participation31.save
+participation31.save!
 participation32 = Participation.new(user: user7, ride: ride3)
-participation32.save
+participation32.save!
 
 # Ride 4
 participation41 = Participation.new(user: user2, ride: ride4)
-participation41.save
+participation41.save!
 participation42 = Participation.new(user: user3, ride: ride4)
-participation42.save
+participation42.save!
 participation43 = Participation.new(user: user5, ride: ride4)
-participation43.save
+participation43.save!
 participation44 = Participation.new(user: user6, ride: ride4)
-participation44.save
-participation45 = Participation.new(user: user7, ride: ride4)
-participation45.save
+participation44.save!
+# participation45 = Participation.new(user: user7, ride: ride4)
+# participation45.save!
 
 # Ride 5
 participation51 = Participation.new(user: user4, ride: ride5)
-participation51.save
+participation51.save!
 participation52 = Participation.new(user: user6, ride: ride5)
-participation52.save
+participation52.save!
 
 # Ride 6
 participation61 = Participation.new(user: user2, ride: ride6)
-participation61.save
+participation61.save!
 participation62 = Participation.new(user: user3, ride: ride6)
-participation62.save
+participation62.save!
 participation63 = Participation.new(user: user7, ride: ride6)
-participation63.save
+participation63.save!
 participation64 = Participation.new(user: user8, ride: ride6)
-participation64.save
+participation64.save!
 
 # Ride 7
 
 # Ride 8
 participation81 = Participation.new(user: user5, ride: ride8)
-participation81.save
+participation81.save!
 participation82 = Participation.new(user: user6, ride: ride8)
-participation82.save
+participation82.save!
 
 # Ride 9
-participation91 = Participation.new(user: user5, ride: ride8)
-participation91.save
-participation92 = Participation.new(user: user6, ride: ride8)
-participation92.save
-participation93 = Participation.new(user: user7, ride: ride9)
-participation93.save
+participation91 = Participation.new(user: user5, ride: ride9)
+participation91.save!
+participation92 = Participation.new(user: user6, ride: ride9)
+participation92.save!
+# participation93 = Participation.new(user: user7, ride: ride9)
+# participation93.save!
 
 puts "Seeding done."
