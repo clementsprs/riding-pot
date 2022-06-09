@@ -13,8 +13,9 @@
       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
     <% unless @ride.participations.where(user_id: current_user.id).any? %>
-      <div class="relative-box">
-        <%= button_to "Rejoindre", ride_participations_path(@ride), method: :post, class: "main-button" %>
+      <div class=" container relative-box">
+        <div class="slot" data-confettis-target="slot"></div>
+        <%= button_to "Rejoindre", ride_participations_path(@ride), method: :post, class: "main-button", data: {action: "click->confettis#fiesta"} %>
       </div>
     <% end %>
   </div>
