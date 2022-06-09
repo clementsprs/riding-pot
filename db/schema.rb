@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_07_073301) do
+ActiveRecord::Schema.define(version: 2022_06_09_145656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 2022_06_07_073301) do
     t.float "longitude"
     t.time "starting_time"
     t.string "route_name"
+    t.integer "participants", default: 1
     t.index ["user_id"], name: "index_rides_on_user_id"
   end
 

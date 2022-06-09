@@ -28,7 +28,7 @@ user1 = User.new(
   password: 'clement'
 )
 user1.photo.attach(io: photoclement, filename: 'clement.png', content_type: 'image/png')
-user1.save
+user1.save!
 
 photomargaux = URI.open('https://res.cloudinary.com/dv67de4qe/image/upload/v1653919657/photo-margaux_hoh9dh.jpg')
 user2 = User.new(
@@ -39,7 +39,7 @@ user2 = User.new(
   password: 'margaux'
 )
 user2.photo.attach(io: photomargaux, filename: 'margaux.png', content_type: 'image/png')
-user2.save
+user2.save!
 
 photocedric = URI.open('https://res.cloudinary.com/dv67de4qe/image/upload/v1653919658/image_bawrw0.png')
 user3 = User.new(
@@ -50,7 +50,7 @@ user3 = User.new(
   password: 'cedric'
 )
 user3.photo.attach(io: photocedric, filename: 'cedric.png', content_type: 'image/png')
-user3.save
+user3.save!
 
 photoyohann = URI.open('https://res.cloudinary.com/dv67de4qe/image/upload/v1653919658/yohann-photo_grqcif.jpg')
 user4 = User.new(
@@ -61,7 +61,7 @@ user4 = User.new(
   password: 'yohann'
 )
 user4.photo.attach(io: photoyohann, filename: 'yohann.png', content_type: 'image/png')
-user4.save
+user4.save!
 
 photoclarisse = URI.open('https://res.cloudinary.com/dv67de4qe/image/upload/v1654767660/user5_w5ll7r.jpg')
 user5 = User.new(
@@ -72,7 +72,7 @@ user5 = User.new(
   password: 'clarisse'
 )
 user5.photo.attach(io: photoclarisse, filename: 'clarisse.png', content_type: 'image/png')
-user5.save
+user5.save!
 
 photojohn = URI.open('https://res.cloudinary.com/dv67de4qe/image/upload/v1654767658/user6_wujk8b.jpg')
 user6 = User.new(
@@ -80,10 +80,10 @@ user6 = User.new(
   last_name: 'Award',
   username: 'John_Valverde',
   email: 'john@gmail.com',
-  password: 'john'
+  password: 'john23'
 )
 user6.photo.attach(io: photojohn, filename: 'john.png', content_type: 'image/png')
-user6.save
+user6.save!
 
 photoremi = URI.open('https://res.cloudinary.com/dv67de4qe/image/upload/v1654767657/user7_szekxu.jpg')
 user7 = User.new(
@@ -91,10 +91,10 @@ user7 = User.new(
   last_name: 'Boutin',
   username: 'Remi_Bardet',
   email: 'remi@gmail.com',
-  password: 'remi'
+  password: 'remi23'
 )
 user7.photo.attach(io: photoremi, filename: 'remi.png', content_type: 'image/png')
-user7.save
+user7.save!
 
 photoedouard = URI.open('https://res.cloudinary.com/dv67de4qe/image/upload/v1654767662/user8_g4qaa1.jpg')
 user8 = User.new(
@@ -105,7 +105,7 @@ user8 = User.new(
   password: 'edouard'
 )
 user8.photo.attach(io: photoedouard, filename: 'edouard.png', content_type: 'image/png')
-user8.save
+user8.save!
 
 puts "Seeding the rides"
 
@@ -135,7 +135,7 @@ ride1 = Ride.new(
   date: DateTime.new(2022,06,05),
   starting_time: DateTime.new(2022, 06, 05, 10, 00, 00)
 )
-ride1.save
+ride1.save!
 
 ride2 = Ride.new(
   title: 'Sortie vers la mer',
@@ -152,7 +152,7 @@ ride2 = Ride.new(
   date: DateTime.new(2022, 06, 11),
   starting_time: DateTime.new(2022, 06, 11, 10, 00, 00)
 )
-ride2.save
+ride2.save!
 
 ride3 = Ride.new(
   title: 'Balade autour de Rennes',
@@ -169,7 +169,7 @@ ride3 = Ride.new(
   date: DateTime.new(2022, 06, 11),
   starting_time: DateTime.new(2022, 06, 11, 14, 00, 00)
 )
-ride3.save
+ride3.save!
 
 ride4 = Ride.new(
   title: 'Boucle Nantes Nord Est',
@@ -186,7 +186,7 @@ ride4 = Ride.new(
   date: DateTime.new(2022, 06, 17),
   starting_time: DateTime.new(2022, 06, 16, 14, 00, 00)
 )
-ride4.save
+ride4.save!
 
 ride5 = Ride.new(
   title: 'Longue sortie vers Clisson',
@@ -203,7 +203,7 @@ ride5 = Ride.new(
   date: DateTime.new(2022,06,17),
   starting_time: DateTime.new(2022, 06, 17, 10, 00, 00)
 )
-ride5.save
+ride5.save!
 
 ride6 = Ride.new(
   title: 'Boucle vers Rouans',
@@ -220,7 +220,7 @@ ride6 = Ride.new(
   date: DateTime.new(2022, 06, 17),
   starting_time: DateTime.new(2022, 06, 17, 14, 00, 00)
 )
-ride6.save
+ride6.save!
 
 ride7 = Ride.new(
   title: 'Tour du Lac de Grand Lieu depuis Nantes',
@@ -237,7 +237,7 @@ ride7 = Ride.new(
   date: DateTime.new(2022,06,17),
   starting_time: DateTime.new(2022, 06, 17, 14, 30, 00)
 )
-ride7.save
+ride7.save!
 
 ride8 = Ride.new(
   title: 'Rennes - Plein Sud !',
@@ -254,7 +254,7 @@ ride8 = Ride.new(
   date: DateTime.new(2022,06,17),
   starting_time: DateTime.new(2022, 06, 23, 14, 00, 00)
 )
-ride8.save
+ride8.save!
 
 ride9 = Ride.new(
   title: 'Tour de Rennes',
@@ -271,7 +271,7 @@ ride9 = Ride.new(
   date: DateTime.new(2022, 06, 23),
   starting_time: DateTime.new(2022, 06, 24, 14, 00, 00)
 )
-ride9.save
+ride9.save!
 
 puts "Seeding the participations"
 
