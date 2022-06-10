@@ -6,7 +6,9 @@ export default class extends Controller {
   connect() {
 
     this.stars = ["🚴‍♂️", "🙌", "😍", "🚴‍♂️"];
-    this.fiesta()
+    if (this.element.dataset.confettis == "true") {
+      this.fiesta()
+    }
   }
 
   fiesta() {

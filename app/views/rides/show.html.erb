@@ -1,4 +1,4 @@
-<div class="show-box">
+<div class="show-box" data-controller="confettis" data-confettis="<%= params[:confettis] %>">
   <%# MAP %>
   <div class="mapbox">
     <div class="d-flex justify-content-between">
@@ -14,11 +14,11 @@
     </div>
     <% unless @ride.participations.where(user_id: current_user.id).any? %>
       <div class=" container relative-box">
-        <div class="slot" data-confettis-target="slot"></div>
         <%= button_to "Rejoindre", ride_participations_path(@ride), method: :post, class: "main-button", data: {action: "click->confettis#fiesta"} %>
       </div>
     <% end %>
   </div>
+  <div class="slot" data-confettis-target="slot"></div>
 
   <%# INFOS RIDE %>
   <div class="show-box-info m-3">

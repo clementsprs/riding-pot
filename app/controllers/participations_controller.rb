@@ -6,7 +6,7 @@ class ParticipationsController < ApplicationController
     @participation.user = @user
     @participation.ride = @ride
     if @participation.save
-      redirect_to ride_path(@ride)
+      redirect_to ride_path(@ride, confettis: true)
     else
       redirect_to ride_path(@ride), notice: @participation.errors.messages.first[1].first
     end
