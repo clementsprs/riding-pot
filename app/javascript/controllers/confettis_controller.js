@@ -7,7 +7,7 @@ export default class extends Controller {
 
     this.stars = ["🚴‍♂️", "🙌", "😍", "🚴‍♂️"];
     if (this.element.dataset.confettis == "true") {
-      this.fiesta()
+      setTimeout(() => { this.fiesta() }, 500)
     }
   }
 
